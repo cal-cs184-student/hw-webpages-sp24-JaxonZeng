@@ -1,7 +1,172 @@
-<html>
-	<head>
-	</head>
-	<body>
-		Homework 1 index.html here
-	</body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style>
+  body {
+    padding: 100px;
+    width: 1000px;
+    margin: auto;
+    text-align: left;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    color: #121212;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+</style>
+<title>CS 184/284A Rasterizer</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+</head>
+
+
+<body>
+
+<h1 align="middle">CS 184/284A: Computer Graphics and Imaging, Spring 2024</h1>
+<h1 align="middle">Homework 1: Rasterizer</h1>
+<h2 align="middle">Jaxon Zeng</h2>
+
+<br><br>
+
+<div>
+
+<h2 align="middle">Overview</h2>
+<p>This project implements a rasterizer that renders images from SVG files and also maps textures. There are three main topics, which are antialiasing, transforms, and Barycentric coordinate interpolation. The implementation of antialiasing includes several different methods such as supersampling, bilinear texture mapping, and linear mipmap layering. Transforms give the ability to move objects around. Barycentric coordinate interpolation makes gradient coloring easier. Combining all those functions enables the plotting of complex graphs.</p>
+<h2 align="middle">Section I: Rasterization</h2>
+
+<h3 align="middle">Part 1: Rasterizing single-color triangles</h3>
+<p>This part implements the basic rasterization of triangles. The rasterization takes in three points, which are the vertices of a triangle, and plots the triangle with the given color. The rasterizer first makes the three points in a counter-clockwise order that helps later rasterization. It then defines a bounding box based on the coordinates of the vertices. For every pixel in this bounding box, it checks whether the center of the pixel is in the triangle or not. If yes, it plots the pixel with the color of the triangle. The checking algorithm uses the dot product between the perpendicular vector to the edge of a triangle and a vector that points from the source vertices of that edge to the center of the pixel.</p>
+<div align="middle">
+  <img src="images/task1/test4_1.png" align="middle" width="800px">
+  <figcaption align="middle"><b>Fig 1.</b> Basic rasterization of solid triangles with different colors. This implementation reveals the problem of aliasing on the boundaries of triangles.</figcaption>
+</div>
+
+
+
+
+
+<h3 align="middle">Part 2: Antialiasing triangles</h3>
+<p>This part introduces supersampling to reduce aliasing. The basic idea of supersampling is to split a pixel into smaller units and perform triangle detection on these smaller units instead of the pixel. Supersampling is equivalent to rasterizer a higher resolution image and then downsample it. This can filter out high frequency and increase smoothness on the boundaries. The algorithm is similar to part 1. But in the triangle checking part, it divides each pixel into small units with the rate of supersampling. Then it checks whether each unit is in the triangle. If the unit is in the triangle, the rasterizer assigns the color of the triangle to the unit. When plotting the pixel, the rasterizer averages the colors of the units inside that pixel, which can smooth out the boundaries of triangles. Since the rasterizer needs to store more data, it resizes the sample buffer according to the supersample rate. The rasterizer buffer uses the color object to store the color information of each subpixel unit. It makes the calculation of pixel color easier.</p>
+<div align="middle">
+  <table style="width=100%">
+    <tr>
+      <td>
+        <img src="images/task2/task2_sr1.png" align="middle" width="400px"/>
+        <figcaption align="middle"><b>Fig 2a.</b> Sample rate = 1. This sample rate is equivalent to the basic rasterization, which generates obvious aliasing. </figcaption>
+      </td>
+      <td>
+        <img src="images/task2/task2_sr4.png" align="middle" width="400px"/>
+        <figcaption align="middle"><b>Fig 2b.</b> Sample rate = 4. This introduces supersampling and it's obvious that the edges of triangles are soften.</figcaption>
+      </td>
+    </tr>
+    <br>
+    <tr>
+      <td>
+        <img src="images/task2/task2_sr9.png" align="middle" width="400px"/>
+        <figcaption align="middle"><b>Fig 2c.</b> Sample rate = 9. Higher supersampling makes the edges even smoother.</figcaption>
+      </td>
+      <td>
+        <img src="images/task2/task2_sr16.png" align="middle" width="400px"/>
+        <figcaption align="middle"><b>Fig 2d.</b> Sample rate = 16. </figcaption>
+      </td>
+    </tr>
+  </table>
+</div>
+<p>The <b>Fig 2</b> shows that supersampling helps antialiasing. In the process of supersampling, as we increase the sample rate, we increase the sampling frequency and thus the Nyquist frequency. By the Nyquist Theorem, the larger the Nyquist frequency, the less aliasing. Thus the triangles with higher sample rates look more natural.</p>
+
+<h3 align="middle">Part 3: Transforms</h3>
+<div align="middle">
+  <img src="images/task3/task3.png" align="middle" width="800px">
+  <figcaption align="middle"><b>Fig 3.</b> Updated version of robot running. The image is generated using translations, rotations, and scalings. All parts of robot are in a hierarchal relation so that relative parts can move together.</figcaption>
+</div>
+<p>I turned the robot to a running position. I change the color of robot to a red/orange pattern. I rotate both the arms and legs so that the robot. I also translate the lower part of the arms and legs to maintain the relative position. Last, I adjust the scale of the legs to make them look stronger.</p>
+
+
+<h2 align="middle">Section II: Sampling</h2>
+
+<h3 align="middle">Part 4: Barycentric coordinates</h3>
+<p>This part implements the Barycentric coordinate interpolation. The Barycentric coordinate is used inside a triangle that uses alpha, beta, and gamma as axes. These three values can be used as weights to calculate values inside the triangle by simply summing up the values on each vertex and the corresponding weights. This coordinate makes assigning values from feature spaces such as color more convenient.</p>
+
+<div align="middle">
+  <table style="width=100%">
+    <tr>
+      <td>
+        <img src="images/task4/task4_1.png" align="middle" width="400px"/>
+        <figcaption align="middle"><b>Fig 4a.</b> A triangle colored using Barycentric coordinate with one red, one green, and one blue vertex.</figcaption>
+      </td>
+      <td>
+        <img src="images/task4/task4_2.png" align="middle" width="400px"/>
+        <figcaption align="middle"><b>Fig 4b.</b> A colorwheel.</figcaption>
+      </td>
+    </tr>
+  </table>
+</div>
+<p>From plot <b>Fig 4a</b>, the vertices have pure RGB color. As the position moves into the center of the triangle, the color starts to blend in because the weights are approaching closer.</p>
+
+<h3 align="middle">Part 5: "Pixel sampling" for texture mapping</h3>
+<p>This part introduces two kinds of pixel sampling for texture mapping, which are Nearest and Bilinear. The nearest sampling is straightforward. It simply maps the pixel to the nearest corresponding point on the texture. The implementation of nearest sampling first translates the position from the screen space to the texture space by matrix multiplications. Then in the texture space, the rasterizer scales the normalized texture position back to the size of the texture. It then rounds the position to the nearest integer and maps the color of that texture position to the pixel. The implementation of bilinear is more complex. In the texture space, it requires four nearest neighbor pixels to calculate the color. The rasterization acquires the four neighbors by taking the floor and ceil of the texture space position. Then it performs lerp horizontally through the upper two pixels and lower two pixels. The results are used to perform another lerp vertically. The final result is the color of the pixel in the screen space.</p>
+<div align="middle">
+  <table style="width=100%">
+    <tr>
+      <td>
+        <img src="images/task5/Task5_1_n.png" align="middle" width="400px"/>
+        <figcaption align="middle"><b>Fig 5a.</b> Sample rate = 1. Nearest </figcaption>
+      </td>
+      <td>
+        <img src="images/task5/Task5_1_b.png" align="middle" width="400px"/>
+        <figcaption align="middle"><b>Fig 5b.</b> Sample rate = 1. Bilinear</figcaption>
+      </td>
+    </tr>
+    <br>
+    <tr>
+      <td>
+        <img src="images/task5/Task5_16_n.png" align="middle" width="400px"/>
+        <figcaption align="middle"><b>Fig 5c.</b> Sample rate = 16. Nearest</figcaption>
+      </td>
+      <td>
+        <img src="images/task5/Task5_16_b.png" align="middle" width="400px"/>
+        <figcaption align="middle"><b>Fig 5d.</b> Sample rate = 16. Bilinear </figcaption>
+      </td>
+    </tr>
+  </table>
+</div>
+<p>For both sample rates, we can see that the bilinear sampling generated a smoother image. However, on the higher sample rate, the effect of bilinear sampling is not so obvious. When the screen space is larger than the texture space, the two methods will have a large difference. This is because the screen space will magnify texture space. With the nearest method, it maps the same texture pixel to multiple pixels. While the bilinear method can smooth out pixels with several textels.</p>
+
+<h3 align="middle">Part 6: "Level sampling" with mipmaps for texture mapping</h3>
+<p>This part implements three level sampling methods. The first method is the zero layer. This is simple in that the rasterizer only uses the layer 0 texture, which is the largest layer. The second method is the nearest layer. This method requires the calculation of the texture layer. The rasterizer gets the shift in texture positions corresponding to the 1-pixel shift in screen space. This shift is used to calculate which layer to use. The rasterizer rounds this result to the nearest integer and uses the corresponding texture layer. The third method is the linear method. After getting the result of which layer to use, instead of rounding it to the nearest integer, the rasterizer takes the floor and ceil of the number and averages the two layers of textures.</p>
+<p>Of all the methods, supersampling has the strongest effect on antialiasing. However, it has the largest memory usage since its memory is proportional to the sampling rate. It also has a relatively lower speed. Pixel sampling does not use much memory, but it requires more computation and thus a lower speed. The antialiasing power is also not so strong when choosing a good texture layer. Finally, level sampling provides a great number of advantages. It does not use much extra memory and the computation is easy. However, it still provides a strong antialiasing effect.</p>
+
+<div align="middle">
+  <table style="width=100%">
+    <tr>
+      <td>
+        <img src="images/task6/task6_lz_pn.png" align="middle" width="400px"/>
+        <figcaption align="middle"><b>Fig 6a.</b> L_ZERO, P_NEAREST </figcaption>
+      </td>
+      <td>
+        <img src="images/task6/task6_lz_pl.png" align="middle" width="400px"/>
+        <figcaption align="middle"><b>Fig 6b.</b> L_ZERO, P_LINEAR</figcaption>
+      </td>
+    </tr>
+    <br>
+    <tr>
+      <td>
+        <img src="images/task6/task6_ln_pn.png" align="middle" width="400px"/>
+        <figcaption align="middle"><b>Fig 6c.</b> L_NEAREST, P_NEAREST</figcaption>
+      </td>
+      <td>
+        <img src="images/task6/task6_ln_pl.png" align="middle" width="400px"/>
+        <figcaption align="middle"><b>Fig 6d.</b> L_NEAREST, P_LINEAR </figcaption>
+      </td>
+    </tr>
+  </table>
+</div>
+<p>Compare L_NEAREST to L_ZERO, we can find the red line on the images gets smoother. Bilinear pixel sampling also helps improve smoothness but the effect is not obvious.</p>
+<h2 align="middle">Section III: Art Competition</h2>
+<p>If you are not participating in the optional art competition, don't worry about this section!</p>
+
+<h3 align="middle">Part 7: Draw something interesting!</h3>
+
+</body>
 </html>
