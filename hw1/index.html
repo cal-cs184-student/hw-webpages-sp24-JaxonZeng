@@ -38,7 +38,7 @@
 <h3 align="middle">Part 1: Rasterizing single-color triangles</h3>
 <p>This part implements the basic rasterization of triangles. The rasterization takes in three points, which are the vertices of a triangle, and plots the triangle with the given color. The rasterizer first makes the three points in a counter-clockwise order that helps later rasterization. It then defines a bounding box based on the coordinates of the vertices. For every pixel in this bounding box, it checks whether the center of the pixel is in the triangle or not. If yes, it plots the pixel with the color of the triangle. The checking algorithm uses the dot product between the perpendicular vector to the edge of a triangle and a vector that points from the source vertices of that edge to the center of the pixel.</p>
 <div align="middle">
-  <img src="images/task1/test4_1.png" align="middle" width="800px">
+  <img src="./images/task1/test4_1.png" align="middle" width="800px">
   <figcaption align="middle"><b>Fig 1.</b> Basic rasterization of solid triangles with different colors. This implementation reveals the problem of aliasing on the boundaries of triangles.</figcaption>
 </div>
 
@@ -52,22 +52,22 @@
   <table style="width=100%">
     <tr>
       <td>
-        <img src="images/task2/task2_sr1.png" align="middle" width="400px"/>
+        <img src="./images/task2/task2_sr1.png" align="middle" width="400px"/>
         <figcaption align="middle"><b>Fig 2a.</b> Sample rate = 1. This sample rate is equivalent to the basic rasterization, which generates obvious aliasing. </figcaption>
       </td>
       <td>
-        <img src="images/task2/task2_sr4.png" align="middle" width="400px"/>
+        <img src="./images/task2/task2_sr4.png" align="middle" width="400px"/>
         <figcaption align="middle"><b>Fig 2b.</b> Sample rate = 4. This introduces supersampling and it's obvious that the edges of triangles are soften.</figcaption>
       </td>
     </tr>
     <br>
     <tr>
       <td>
-        <img src="images/task2/task2_sr9.png" align="middle" width="400px"/>
+        <img src="./images/task2/task2_sr9.png" align="middle" width="400px"/>
         <figcaption align="middle"><b>Fig 2c.</b> Sample rate = 9. Higher supersampling makes the edges even smoother.</figcaption>
       </td>
       <td>
-        <img src="images/task2/task2_sr16.png" align="middle" width="400px"/>
+        <img src="./images/task2/task2_sr16.png" align="middle" width="400px"/>
         <figcaption align="middle"><b>Fig 2d.</b> Sample rate = 16. </figcaption>
       </td>
     </tr>
@@ -77,7 +77,7 @@
 
 <h3 align="middle">Part 3: Transforms</h3>
 <div align="middle">
-  <img src="images/task3/task3.png" align="middle" width="800px">
+  <img src="./images/task3/task3.png" align="middle" width="800px">
   <figcaption align="middle"><b>Fig 3.</b> Updated version of robot running. The image is generated using translations, rotations, and scalings. All parts of robot are in a hierarchal relation so that relative parts can move together.</figcaption>
 </div>
 <p>I turned the robot to a running position. I change the color of robot to a red/orange pattern. I rotate both the arms and legs so that the robot. I also translate the lower part of the arms and legs to maintain the relative position. Last, I adjust the scale of the legs to make them look stronger.</p>
@@ -92,11 +92,11 @@
   <table style="width=100%">
     <tr>
       <td>
-        <img src="images/task4/task4_1.png" align="middle" width="400px"/>
+        <img src="./images/task4/task4_1.png" align="middle" width="400px"/>
         <figcaption align="middle"><b>Fig 4a.</b> A triangle colored using Barycentric coordinate with one red, one green, and one blue vertex.</figcaption>
       </td>
       <td>
-        <img src="images/task4/task4_2.png" align="middle" width="400px"/>
+        <img src="./images/task4/task4_2.png" align="middle" width="400px"/>
         <figcaption align="middle"><b>Fig 4b.</b> A colorwheel.</figcaption>
       </td>
     </tr>
@@ -110,22 +110,22 @@
   <table style="width=100%">
     <tr>
       <td>
-        <img src="images/task5/Task5_1_n.png" align="middle" width="400px"/>
+        <img src="./images/task5/Task5_1_n.png" align="middle" width="400px"/>
         <figcaption align="middle"><b>Fig 5a.</b> Sample rate = 1. Nearest </figcaption>
       </td>
       <td>
-        <img src="images/task5/Task5_1_b.png" align="middle" width="400px"/>
+        <img src="./images/task5/Task5_1_b.png" align="middle" width="400px"/>
         <figcaption align="middle"><b>Fig 5b.</b> Sample rate = 1. Bilinear</figcaption>
       </td>
     </tr>
     <br>
     <tr>
       <td>
-        <img src="images/task5/Task5_16_n.png" align="middle" width="400px"/>
+        <img src="./images/task5/Task5_16_n.png" align="middle" width="400px"/>
         <figcaption align="middle"><b>Fig 5c.</b> Sample rate = 16. Nearest</figcaption>
       </td>
       <td>
-        <img src="images/task5/Task5_16_b.png" align="middle" width="400px"/>
+        <img src="./images/task5/Task5_16_b.png" align="middle" width="400px"/>
         <figcaption align="middle"><b>Fig 5d.</b> Sample rate = 16. Bilinear </figcaption>
       </td>
     </tr>
@@ -141,22 +141,22 @@
   <table style="width=100%">
     <tr>
       <td>
-        <img src="images/task6/task6_lz_pn.png" align="middle" width="400px"/>
+        <img src="./images/task6/task6_lz_pn.png" align="middle" width="400px"/>
         <figcaption align="middle"><b>Fig 6a.</b> L_ZERO, P_NEAREST </figcaption>
       </td>
       <td>
-        <img src="images/task6/task6_lz_pl.png" align="middle" width="400px"/>
+        <img src="./images/task6/task6_lz_pl.png" align="middle" width="400px"/>
         <figcaption align="middle"><b>Fig 6b.</b> L_ZERO, P_LINEAR</figcaption>
       </td>
     </tr>
     <br>
     <tr>
       <td>
-        <img src="images/task6/task6_ln_pn.png" align="middle" width="400px"/>
+        <img src="./images/task6/task6_ln_pn.png" align="middle" width="400px"/>
         <figcaption align="middle"><b>Fig 6c.</b> L_NEAREST, P_NEAREST</figcaption>
       </td>
       <td>
-        <img src="images/task6/task6_ln_pl.png" align="middle" width="400px"/>
+        <img src="./images/task6/task6_ln_pl.png" align="middle" width="400px"/>
         <figcaption align="middle"><b>Fig 6d.</b> L_NEAREST, P_LINEAR </figcaption>
       </td>
     </tr>
