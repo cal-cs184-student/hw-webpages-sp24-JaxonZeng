@@ -1,0 +1,387 @@
+[
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++ -Dpt31_EXPORTS -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -fPIC -o CMakeFiles/pt31.dir/src/scene/sphere.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/sphere.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/sphere.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++ -Dpt31_EXPORTS -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -fPIC -o CMakeFiles/pt31.dir/src/scene/triangle.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/triangle.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/triangle.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++ -Dpt31_EXPORTS -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -fPIC -o CMakeFiles/pt31.dir/src/scene/light.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/light.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/light.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++ -Dpt31_EXPORTS -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -fPIC -o CMakeFiles/pt31.dir/src/scene/bvh.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/bvh.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/bvh.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++ -Dpt31_EXPORTS -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -fPIC -o CMakeFiles/pt31.dir/src/scene/bbox.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/bbox.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/bbox.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++ -Dpt31_EXPORTS -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -fPIC -o CMakeFiles/pt31.dir/src/pathtracer/camera.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/pathtracer/camera.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/pathtracer/camera.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++ -Dpt31_EXPORTS -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -fPIC -o CMakeFiles/pt31.dir/src/pathtracer/bsdf.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/pathtracer/bsdf.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/pathtracer/bsdf.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++ -Dpt31_EXPORTS -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -fPIC -o CMakeFiles/pt31.dir/src/pathtracer/pathtracer.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/pathtracer/pathtracer.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/pathtracer/pathtracer.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++ -Dpt31_EXPORTS -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -fPIC -o CMakeFiles/pt31.dir/src/imgui/imgui.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/imgui.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/imgui.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++ -Dpt31_EXPORTS -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -fPIC -o CMakeFiles/pt31.dir/src/imgui/imgui_widgets.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/imgui_widgets.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/imgui_widgets.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++ -Dpt31_EXPORTS -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -fPIC -o CMakeFiles/pt31.dir/src/imgui/imgui_draw.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/imgui_draw.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/imgui_draw.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++ -Dpt31_EXPORTS -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -fPIC -o CMakeFiles/pt31.dir/src/imgui/imgui_tables.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/imgui_tables.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/imgui_tables.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++ -Dpt31_EXPORTS -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -fPIC -o CMakeFiles/pt31.dir/src/imgui/backends/imgui_impl_glfw.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/backends/imgui_impl_glfw.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/backends/imgui_impl_glfw.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++ -Dpt31_EXPORTS -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -fPIC -o CMakeFiles/pt31.dir/src/imgui/backends/imgui_impl_opengl2.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/backends/imgui_impl_opengl2.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/backends/imgui_impl_opengl2.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++ -Dpt31_EXPORTS -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -fPIC -o CMakeFiles/pt31.dir/src/application/pathtracer_launcher_gui.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/application/pathtracer_launcher_gui.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/application/pathtracer_launcher_gui.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/scene/object.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/object.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/object.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/scene/collada/collada.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/collada/collada.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/collada/collada.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/scene/collada/camera_info.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/collada/camera_info.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/collada/camera_info.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/scene/collada/light_info.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/collada/light_info.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/collada/light_info.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/scene/collada/sphere_info.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/collada/sphere_info.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/collada/sphere_info.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/scene/collada/polymesh_info.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/collada/polymesh_info.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/collada/polymesh_info.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/scene/collada/material_info.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/collada/material_info.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/collada/material_info.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/scene/gl_scene/mesh.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/gl_scene/mesh.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/gl_scene/mesh.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/scene/gl_scene/scene.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/gl_scene/scene.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/gl_scene/scene.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/scene/gl_scene/sphere.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/gl_scene/sphere.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/gl_scene/sphere.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/util/halfEdgeMesh.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/util/halfEdgeMesh.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/util/halfEdgeMesh.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/application/meshEdit.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/application/meshEdit.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/application/meshEdit.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/pathtracer/sampler.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/pathtracer/sampler.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/pathtracer/sampler.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/pathtracer/advanced_bsdf.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/pathtracer/advanced_bsdf.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/pathtracer/advanced_bsdf.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/scene/environment_light.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/environment_light.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/scene/environment_light.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/pathtracer/camera_lens.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/pathtracer/camera_lens.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/pathtracer/camera_lens.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/pathtracer/raytraced_renderer.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/pathtracer/raytraced_renderer.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/pathtracer/raytraced_renderer.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/util/sphere_drawing.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/util/sphere_drawing.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/util/sphere_drawing.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/util/lodepng.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/util/lodepng.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/util/lodepng.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/application/application.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/application/application.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/application/application.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/application/main.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/application/main.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/application/main.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/application/visual_debugger.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/application/visual_debugger.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/application/visual_debugger.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/imgui/imgui.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/imgui.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/imgui.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/imgui/imgui_widgets.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/imgui_widgets.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/imgui_widgets.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/imgui/imgui_draw.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/imgui_draw.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/imgui_draw.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/imgui/imgui_tables.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/imgui_tables.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/imgui_tables.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/imgui/backends/imgui_impl_glfw.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/backends/imgui_impl_glfw.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/backends/imgui_impl_glfw.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build",
+  "command": "/usr/bin/c++  -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/./src/imgui/backends -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/pathtracer.dir/src/imgui/backends/imgui_impl_opengl2.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/backends/imgui_impl_opengl2.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/src/imgui/backends/imgui_impl_opengl2.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL",
+  "command": "/usr/bin/c++ -DGLEW_STATIC -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL -I/usr/include/freetype2 -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/CGL.dir/src/vector2D.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/vector2D.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/vector2D.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL",
+  "command": "/usr/bin/c++ -DGLEW_STATIC -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL -I/usr/include/freetype2 -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/CGL.dir/src/vector3D.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/vector3D.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/vector3D.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL",
+  "command": "/usr/bin/c++ -DGLEW_STATIC -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL -I/usr/include/freetype2 -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/CGL.dir/src/vector4D.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/vector4D.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/vector4D.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL",
+  "command": "/usr/bin/c++ -DGLEW_STATIC -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL -I/usr/include/freetype2 -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/CGL.dir/src/matrix3x3.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/matrix3x3.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/matrix3x3.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL",
+  "command": "/usr/bin/c++ -DGLEW_STATIC -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL -I/usr/include/freetype2 -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/CGL.dir/src/matrix4x4.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/matrix4x4.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/matrix4x4.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL",
+  "command": "/usr/bin/c++ -DGLEW_STATIC -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL -I/usr/include/freetype2 -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/CGL.dir/src/quaternion.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/quaternion.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/quaternion.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL",
+  "command": "/usr/bin/c++ -DGLEW_STATIC -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL -I/usr/include/freetype2 -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/CGL.dir/src/complex.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/complex.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/complex.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL",
+  "command": "/usr/bin/c++ -DGLEW_STATIC -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL -I/usr/include/freetype2 -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/CGL.dir/src/color.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/color.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/color.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL",
+  "command": "/usr/bin/c++ -DGLEW_STATIC -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL -I/usr/include/freetype2 -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/CGL.dir/src/osdtext.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/osdtext.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/osdtext.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL",
+  "command": "/usr/bin/c++ -DGLEW_STATIC -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL -I/usr/include/freetype2 -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/CGL.dir/src/osdfont.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/osdfont.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/osdfont.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL",
+  "command": "/usr/bin/c++ -DGLEW_STATIC -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL -I/usr/include/freetype2 -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/CGL.dir/src/viewer.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/viewer.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/viewer.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL",
+  "command": "/usr/bin/c++ -DGLEW_STATIC -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL -I/usr/include/freetype2 -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/CGL.dir/src/base64.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/base64.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/base64.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL",
+  "command": "/usr/bin/c++ -DGLEW_STATIC -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL -I/usr/include/freetype2 -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/CGL.dir/src/lodepng.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/lodepng.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/lodepng.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL",
+  "command": "/usr/bin/c++ -DGLEW_STATIC -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL -I/usr/include/freetype2 -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/CGL.dir/src/tinyxml2.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/tinyxml2.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/tinyxml2.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL",
+  "command": "/usr/bin/c++ -DGLEW_STATIC -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/include/CGL -I/usr/include/freetype2 -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include  -std=c++11 -m64 -fPIC -O3  -mavx2 -o CMakeFiles/CGL.dir/src/path.cpp.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/path.cpp",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/src/path.cpp"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glew",
+  "command": "/usr/bin/cc -DGLEW_STATIC -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include  -fPIC -o CMakeFiles/glew.dir/src/glew.c.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/src/glew.c",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/src/glew.c"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glew",
+  "command": "/usr/bin/cc -DGLEW_STATIC -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include  -fPIC -o CMakeFiles/glew.dir/src/glewinfo.c.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/src/glewinfo.c",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/src/glewinfo.c"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glew",
+  "command": "/usr/bin/cc -DGLEW_STATIC -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/include  -fPIC -o CMakeFiles/glew.dir/src/visualinfo.c.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/src/visualinfo.c",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glew/src/visualinfo.c"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src",
+  "command": "/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src  -fPIC -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/context.c.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/context.c",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/context.c"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src",
+  "command": "/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src  -fPIC -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/init.c.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/init.c",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/init.c"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src",
+  "command": "/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src  -fPIC -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/input.c.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/input.c",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/input.c"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src",
+  "command": "/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src  -fPIC -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/monitor.c.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/monitor.c",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/monitor.c"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src",
+  "command": "/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src  -fPIC -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/vulkan.c.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/vulkan.c",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/vulkan.c"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src",
+  "command": "/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src  -fPIC -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/window.c.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/window.c",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/window.c"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src",
+  "command": "/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src  -fPIC -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/x11_init.c.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/x11_init.c",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/x11_init.c"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src",
+  "command": "/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src  -fPIC -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/x11_monitor.c.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/x11_monitor.c",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/x11_monitor.c"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src",
+  "command": "/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src  -fPIC -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/x11_window.c.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/x11_window.c",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/x11_window.c"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src",
+  "command": "/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src  -fPIC -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/xkb_unicode.c.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/xkb_unicode.c",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/xkb_unicode.c"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src",
+  "command": "/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src  -fPIC -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/posix_time.c.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/posix_time.c",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/posix_time.c"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src",
+  "command": "/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src  -fPIC -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/posix_thread.c.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/posix_thread.c",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/posix_thread.c"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src",
+  "command": "/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src  -fPIC -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/glx_context.c.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/glx_context.c",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/glx_context.c"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src",
+  "command": "/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src  -fPIC -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/egl_context.c.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/egl_context.c",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/egl_context.c"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src",
+  "command": "/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src  -fPIC -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/osmesa_context.c.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/osmesa_context.c",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/osmesa_context.c"
+},
+{
+  "directory": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src",
+  "command": "/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/include -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src -I/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/build/CGL/deps/glfw/src  -fPIC -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/linux_joystick.c.o -c /home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/linux_joystick.c",
+  "file": "/home/cc/cs184/sp24/class/cs184-ael/hw3-pathtracer-sp24-nth/CGL/deps/glfw/src/linux_joystick.c"
+}
+]
