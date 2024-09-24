@@ -1,0 +1,862 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <style>
+    body {
+      padding: 100px;
+      width: 1000px;
+      margin: auto;
+      text-align: left;
+      font-weight: 300;
+      font-family: 'Open Sans', sans-serif;
+      color: #121212;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+  </style>
+  <title>CS 180 Project 2: Fun with Filters and Frequencies!</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+</head>
+
+
+<body>
+
+
+  <h1 align="middle">CS 180 Project 2: Fun with Filters and Frequencies!</h1>
+  <h2 align="middle">Jaxon Zeng</h2>
+
+  <br><br>
+
+  <div>
+
+    <h2 align="middle">Overview</h2>
+    <p>This project explores the frequency domain of images. In the first part, I built an edge detection algorithm
+      using the Finite Derivative Operator and used the Gaussian filter to eliminate the effect of noises in edge
+      detection. In the second part, I tried two ways of image blending. The first method blends the high and low
+      frequencies of two images to create different impressions when looking from far and close distances. The second
+      method used the technology called multiresolution blending introduced in the 1983 paper by Burt and Adelson. This
+      method can create a seamless effect when blending two images with masks.</p>
+
+
+    <h2 align="middle">Part 1: Fun with Filters!</h2>
+    <h3 align="middle">1.1: Finite Derivative Operator</h3>
+    <p>Finite derivative operator is a primitive way to detect edges. In the code, I used two simple convolution kernel
+      to detect edges horizontally and vertically.</p>
+    <img src="images/diff_op.png" width="300px" />
+    <p>I used `signal.convolve2d` from the SciPy library to convolve the image with the two kernels. The result of this
+      convolution is the gradient of the image.</p>
+
+    <div align="middle">
+      <td>
+        <img src="images/1-1-0.png" align="middle" width="550" />
+        <figcaption align="middle">Camera Man Original
+        </figcaption>
+      </td>
+    </div>
+    <br>
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+
+          <td>
+            <img src="images/1-1-1.png" align="middle" width="400px" />
+            <figcaption align="middle">Camera Man gradient dx</figcaption>
+          </td>
+          <td>
+            <img src="images/1-1-2.png" align="middle" width="400px" />
+            <figcaption align="middle">Camera Man gradient dy</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <p>To create a better result, I binarized the gradient images to make the edges obvious. I choose a threshold of
+      0.25 (in range [0, 1]) so that any pixel under this value will be black and above this value will be white.</p>
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+
+          <td>
+            <img src="images/1-1-3.png" align="middle" width="400px" />
+            <figcaption align="middle">Camera Man gradient dx binarized</figcaption>
+          </td>
+          <td>
+            <img src="images/1-1-4.png" align="middle" width="400px" />
+            <figcaption align="middle">Camera Man gradient dy binarized</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <p>Combining the two edges using `np.sqrt(edge_imgX ** 2 + edge_imgY ** 2)` (l2 norm) can create the complete edge
+      image:
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+
+          <td>
+            <img src="images/1-1-5.png" align="middle" width="550px" />
+            <figcaption align="middle">Camera Man edge binarized</figcaption>
+          </td>
+
+        </tr>
+      </table>
+    </div>
+    <br>
+    <br>
+    <h3 align="middle">1.2: Derivative of Gaussian (DoG) Filter</h3>
+
+    <p>It's easy to notice that there is noise on the background. Applying a Gaussian filter can be a good way to get
+      rid of the noise. I created the Gaussian filter by first called cv2.getGaussianKernel() to create a 1D filter.
+      Then, I calculated the outer product of two 1d Gaussian filter to create a 2D Gaussian convolution kernel. Then I
+      convolved the image using the Gaussian kernel. It creates blurred images that also eliminate the noise.</p>
+
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+
+          <td>
+            <img src="images/1-2-1.png" align="middle" width="550px" />
+            <figcaption align="middle">Camera Man Blurred</figcaption>
+          </td>
+
+        </tr>
+      </table>
+    </div>
+    <p>I can now take the finite derivative operator on the blurred image to achieve a better result from edge
+      detection. We can see from the result that the detected edges are smoother and less noise.
+    </p>
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+
+          <td>
+            <img src="images/1-2-5.png" align="middle" width="400px" />
+            <figcaption align="middle">Camera Man Blurred gradient dx</figcaption>
+          </td>
+          <td>
+            <img src="images/1-2-6.png" align="middle" width="400px" />
+            <figcaption align="middle">Camera Man Blurred gradient dy</figcaption>
+          </td>
+        </tr>
+      </table>
+      <p>Choose 0.1 as the threshold for binarizing:</p>
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="images/1-2-2.png" align="middle" width="400px" />
+            <figcaption align="middle">Camera Man Blurred gradient dx binarized</figcaption>
+          </td>
+          <td>
+            <img src="images/1-2-3.png" align="middle" width="400px" />
+            <figcaption align="middle">Camera Man Blurred gradient dy binarized</figcaption>
+          </td>
+        </tr>
+      </table>
+      <p>Combining the two edge images using the algorithm above creates this:</p>
+      <div align="middle">
+        <table style="width=100%">
+          <tr>
+            <td>
+              <img src="images/1-2-7.png" align="middle" width="400px" />
+              <figcaption align="middle">Camera Man Blurred edge </figcaption>
+            </td>
+
+            <td>
+              <img src="images/1-2-4.png" align="middle" width="400px" />
+              <figcaption align="middle">Camera Man Blurred edge binarized</figcaption>
+            </td>
+
+          </tr>
+        </table>
+      </div>
+      <br>
+
+    </div>
+
+
+    <p>Since both applying the Gaussian filter and taking the finite derivative are linear operation, the order of the
+      operations does not matter. I could take the finite derivative on the Gaussian filter first and then apply the
+      derivative of Gaussian on the image.</p>
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="images/1-2-8.png" align="middle" width="300px" />
+            <figcaption align="middle">Gaussian Kernel </figcaption>
+          </td>
+
+          <td>
+            <img src="images/1-2-9.png" align="middle" width="300px" />
+            <figcaption align="middle">Gaussian Kernel dx</figcaption>
+          </td>
+          <td>
+            <img src="images/1-2-10.png" align="middle" width="300px" />
+            <figcaption align="middle">Gaussian Kernel dy</figcaption>
+          </td>
+
+        </tr>
+      </table>
+    </div>
+    <br>
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="images/1-2-13.png" align="middle" width="400px" />
+            <figcaption align="middle">Camera Man Gaussian dx</figcaption>
+          </td>
+
+          <td>
+            <img src="images/1-2-14.png" align="middle" width="400px" />
+            <figcaption align="middle">Camera Man Gaussian dy</figcaption>
+          </td>
+
+        </tr>
+
+
+      </table>
+      <p>Still choose 0.1 as the threshold for binarizing:</p>
+      <table style="width=100%">
+
+        <tr>
+          <td>
+            <img src="images/1-2-15.png" align="middle" width="400px" />
+            <figcaption align="middle">Camera Man Gaussian dx binarized </figcaption>
+          </td>
+
+          <td>
+            <img src="images/1-2-16.png" align="middle" width="400px" />
+            <figcaption align="middle">Camera Man Gaussian dy binarized</figcaption>
+          </td>
+
+        </tr>
+      </table>
+      <p>Combining the two edge images using the algorithm above creates this:</p>
+      <table style="width=100%">
+
+        <tr>
+          <td>
+            <img src="images/1-2-17.png" align="middle" width="400px" />
+            <figcaption align="middle">Camera Man Gaussian dx binarized </figcaption>
+          </td>
+
+          <td>
+            <img src="images/1-2-18.png" align="middle" width="400px" />
+            <figcaption align="middle">Camera Man Gaussian dy binarized</figcaption>
+          </td>
+
+        </tr>
+      </table>
+
+    </div>
+    <p>We can see either ways create mostly identical results except for some minor differences. The two binarized
+      images are exactly the same under the same threshold. This is becasue finite derivative and Gaussian filter are
+      both linear process. Hence the order of the two manipulation does not matter.</p>
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+
+          <td>
+            <img src="images/1-2-4.png" align="middle" width="400px" />
+            <figcaption align="middle">Gaussian then Derivative</figcaption>
+          </td>
+          <td>
+            <img src="images/1-2-18.png" align="middle" width="400px" />
+            <figcaption align="middle">Derivative of Gaussian</figcaption>
+          </td>
+
+        </tr>
+      </table>
+    </div>
+    <br>
+    <br>
+
+    <h2 align="middle">Part 2: Fun with Frequencies!</h2>
+    <h3 align="middle">2.1 Image Sharpening</h3>
+    <p>The idea of image sharpening is to add more high frequency content to the image. Adding high frequency content
+      can make the image look like having more details. To extract the high frequency content, we first create a blurred
+      version of the image (represent to low frequency part). Then we subtract the original image with the blurred
+      image. Finally, we could add the extracted high frequency content to the original image to create a sharpen image.
+    </p>
+
+
+    <div align="middle">
+      <p>High frequency of the R, G, B channels of Taj:</p>
+      <table style="width=100%">
+        <tr>
+
+          <td>
+            <img src="images/2-1-1.png" align="middle" width="300px" />
+            <figcaption align="middle">High frequency of R channel</figcaption>
+          </td>
+          <td>
+            <img src="images/2-1-2.png" align="middle" width="300px" />
+            <figcaption align="middle">High frequency of G channel</figcaption>
+          </td>
+          <td>
+            <img src="images/2-1-3.png" align="middle" width="300px" />
+            <figcaption align="middle">High frequency of B channel</figcaption>
+          </td>
+
+        </tr>
+      </table>
+    </div>
+    <br>
+    <div align="middle">
+      <p>Adding high frequency to the original image:</p>
+      <table style="width=100%">
+        <tr>
+
+          <td>
+            <img src="images/2-1-4.png" align="middle" width="400px" />
+            <figcaption align="middle">Taj Original</figcaption>
+          </td>
+          <td>
+            <img src="images/2-1-5.png" align="middle" width="400px" />
+            <figcaption align="middle">Taj Sharpen</figcaption>
+          </td>
+          <td>
+
+          </td>
+
+        </tr>
+      </table>
+    </div>
+
+    <div align="middle"></div>
+    <p>High frequency of the R, G, B channels of Parrot:</p>
+    <table style="width=100%">
+      <tr>
+
+        <td>
+          <img src="images/2-1-6.png" align="middle" width="300px" />
+          <figcaption align="middle">High frequency of R channel</figcaption>
+        </td>
+        <td>
+          <img src="images/2-1-7.png" align="middle" width="300px" />
+          <figcaption align="middle">High frequency of G channel</figcaption>
+        </td>
+        <td>
+          <img src="images/2-1-8.png" align="middle" width="300px" />
+          <figcaption align="middle">High frequency of B channel</figcaption>
+        </td>
+
+      </tr>
+    </table>
+  </div>
+  <br>
+  <div align="middle">
+    <p>Adding high frequency to the original image:</p>
+    <table style="width=100%">
+      <tr>
+
+        <td>
+          <img src="images/2-1-9.png" align="middle" width="400px" />
+          <figcaption align="middle">Parrot Original</figcaption>
+        </td>
+        <td>
+          <img src="images/2-1-10.png" align="middle" width="400px" />
+          <figcaption align="middle">Parrot Sharpen</figcaption>
+        </td>
+
+
+      </tr>
+    </table>
+  </div>
+  <br>
+  <p>I then blur the image first and try sharpen the image to recover its initial status.</p>
+  <div align="middle">
+    <p>Blur the Parrot using Gaussian filter:</p>
+    <table style="width=100%">
+      <tr>
+
+        <td>
+          <img src="images/2-1-11.png" align="middle" width="400px" />
+          <figcaption align="middle">Parrot Original</figcaption>
+        </td>
+        <td>
+          <img src="images/2-1-12.png" align="middle" width="400px" />
+          <figcaption align="middle">Parrot Blurred</figcaption>
+        </td>
+
+
+      </tr>
+    </table>
+  </div>
+
+
+  <div align="middle">
+    <p>High frequency of the R, G, B channels of Parrot:</p>
+    <table style="width=100%">
+      <tr>
+
+        <td>
+          <img src="images/2-1-13.png" align="middle" width="300px" />
+          <figcaption align="middle">High frequency of R channel</figcaption>
+        </td>
+        <td>
+          <img src="images/2-1-14.png" align="middle" width="300px" />
+          <figcaption align="middle">High frequency of G channel</figcaption>
+        </td>
+        <td>
+          <img src="images/2-1-15.png" align="middle" width="300px" />
+          <figcaption align="middle">High frequency of B channel</figcaption>
+        </td>
+
+      </tr>
+    </table>
+  </div>
+  <br>
+  <div align="middle">
+    <p>Adding high frequency to the original image:</p>
+    <table style="width=100%">
+      <tr>
+
+        <td>
+          <img src="images/2-1-16.png" align="middle" width="300px" />
+          <figcaption align="middle">Parrot Blurred</figcaption>
+        </td>
+        <td>
+          <img src="images/2-1-17.png" align="middle" width="300px" />
+          <figcaption align="middle">Parrot Blurred Sharpen</figcaption>
+        </td>
+        <td>
+          <img src="images/2-1-11.png" align="middle" width="300px" />
+          <figcaption align="middle">Parrot Original</figcaption>
+        </td>
+
+
+      </tr>
+    </table>
+  </div>
+  <p> The result shows that although sharpening the blurred image can make it looks sharper than the blurred one.
+    However, it's still pretty obvious that it lacks some details compare to the original image. The lost information
+    cannot be recovered by image sharpening.</p>
+
+  <br>
+
+  <h3 align="middle">2.2 Hybrid Images</h3>
+  <p>This part of the project is to create hybrid images using the method introduced in the paper published in the
+    SIGGRAPH
+    2006 by Oliva, Torralba, and Schyns. The key idea is to merge the high frequency of one image and the low frequency
+    of
+    another image. When looking close to the image, the high frequency part is clear, thus look like the first image.
+    However, when looking in a far distance, we can only see the low frequency part, so it looks like the second image.
+  </p>
+  <p>My approach is still use the Gaussian filter to get the low frequency part of an image. Then use the original image
+    minus the low frequency part to get the high frequency part.</p>
+
+  <p>In Nutmeg and Derek's example, I will create an image using the high frequency of Nutmeg and low frequency of
+    Derek.</p>
+  <div align="middle">
+
+    <table style="width=100%">
+      <tr>
+        <td>
+          <img src="images/2-2-1.png" align="middle" width="400px" />
+          <figcaption align="middle">Nutmeg</figcaption>
+        </td>
+        <td>
+          <img src="images/2-2-2.png" align="middle" width="400px" />
+          <figcaption align="middle">Derek</figcaption>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/2-2-6.png" align="middle" width="400px" />
+          <figcaption align="middle">Nutmeg Frequency Domain</figcaption>
+        </td>
+        <td>
+          <img src="images/2-2-7.png" align="middle" width="400px" />
+          <figcaption align="middle">Derek Frequency Domain</figcaption>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <br>
+  <br>
+  <div align="middle">
+
+    <table style="width=100%">
+      <tr>
+
+        <td>
+          <img src="images/2-2-3.png" align="middle" width="300px" />
+          <figcaption align="middle">Nutmeg Low Frequency <br>with Gaussian sigma 10</figcaption>
+        </td>
+        <td>
+          <img src="images/2-2-4.png" align="middle" width="300px" />
+          <figcaption align="middle">Nutmeg High Frequency<br> _</figcaption>
+        </td>
+        <td>
+          <img src="images/2-2-5.png" align="middle" width="300px" />
+          <figcaption align="middle">Derek Low Frequency <br>with Gaussian sigma 13</figcaption>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/2-2-8.png" align="middle" width="300px" />
+          <figcaption align="middle">Nutmeg Low Frequency <br>Frequency Domain</figcaption>
+        </td>
+        <td>
+          <img src="images/2-2-9.png" align="middle" width="300px" />
+          <figcaption align="middle">Nutmeg High Frequency<br>Frequency Domain</figcaption>
+        </td>
+        <td>
+          <img src="images/2-2-10.png" align="middle" width="300px" />
+          <figcaption align="middle">Derek Low Frequency <br>Frequency Domain</figcaption>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <p>Diving into the frequency domain, the algorithm works successfully on extracting the high and low frequencies. From
+    Nutmeg's high frequency image, the high frequency part is enhanced and low frequency part is reduced. In the Derek
+    Low Frequency's frequency domain, only low frequencies are left in the image.</p>
+
+  <div align="middle">
+    <table style="width=100%">
+      <tr>
+
+        <td>
+          <img src="images/2-2-17.png" align="middle" width="550px" />
+          <figcaption align="middle">Nutmeg Derek hybrid</figcaption>
+        </td>
+
+      </tr>
+    </table>
+  </div>
+  <br>
+  <p>In the next example, I blended me with a dog I don't know the name who trying to steal my food.</p>
+  <div align="middle">
+    <table style="width=100%">
+      <tr>
+        <td>
+          <img src="images/2-2-11.png" align="middle" width="400px" />
+          <figcaption align="middle">Me</figcaption>
+        </td>
+        <td>
+          <img src="images/2-2-12.png" align="middle" width="400px" />
+          <figcaption align="middle">Dog</figcaption>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+  <br>
+  <br>
+  <div align="middle">
+
+    <table style="width=100%">
+      <tr>
+
+        <td>
+          <img src="images/2-2-13.png" align="middle" width="300px" />
+          <figcaption align="middle">Dog Low Frequency <br>with Gaussian sigma 10</figcaption>
+        </td>
+        <td>
+          <img src="images/2-2-14.png" align="middle" width="300px" />
+          <figcaption align="middle">Dog High Frequency<br> _</figcaption>
+        </td>
+        <td>
+          <img src="images/2-2-15.png" align="middle" width="300px" />
+          <figcaption align="middle">Dog Low Frequency <br>with Gaussian sigma 13</figcaption>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+  <div align="middle">
+    <table style="width=100%">
+      <tr>
+
+        <td>
+          <img src="images/2-2-18.png" align="middle" width="550px" />
+          <figcaption align="middle">Dog and Me hybrid</figcaption>
+        </td>
+
+      </tr>
+    </table>
+  </div>
+  <p>In another example, I tried to blend two emoji together.</p>
+  <div align="middle">
+    <table style="width=100%">
+      <tr>
+        <td>
+          <img src="images/2-2-19.png" align="middle" width="400px" />
+          <figcaption align="middle">Smile Face</figcaption>
+        </td>
+        <td>
+          <img src="images/2-2-20.png" align="middle" width="400px" />
+          <figcaption align="middle">Cool Face</figcaption>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+  <br>
+  <br>
+  <div align="middle">
+
+    <table style="width=100%">
+      <tr>
+
+        <td>
+          <img src="images/2-2-21.png" align="middle" width="300px" />
+          <figcaption align="middle">Smile Face Low Frequency <br>with Gaussian sigma 10</figcaption>
+        </td>
+        <td>
+          <img src="images/2-2-22.png" align="middle" width="300px" />
+          <figcaption align="middle">Smile High Frequency<br> _</figcaption>
+        </td>
+        <td>
+          <img src="images/2-2-23.png" align="middle" width="300px" />
+          <figcaption align="middle">Cool Low Frequency <br>with Gaussian sigma 13</figcaption>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+  <div align="middle">
+    <table style="width=100%">
+      <tr>
+
+        <td>
+          <img src="images/2-2-24.png" align="middle" width="550px" />
+          <figcaption align="middle">Cool Face and Smile Face hybrid</figcaption>
+        </td>
+
+      </tr>
+    </table>
+  </div>
+
+
+  <h3 align="middle">2.3 Gaussian and Laplacian Stack</h3>
+  <p>A image stack is a group of images with the same resolution. However, filters are applied to different layer of
+    stack.</p>
+  <p>To create a Laplacian Stack, I need to first create a Gaussian stack. The Gaussian stack implementation is simply
+    taking the original image as the first layer and applying the Gaussian filter on the previous layer as the next
+    layer. Then for the Laplacian stack, each layer will be the same layer of the Gaussian stack minus the next layer of
+    the Gaussian stack. For the last layer of the Laplacian stack, it just uses the same image as the last layer of the
+    Gaussian stack.</p>
+  </div>
+
+  <div align="middle">
+    <table style="width=100%">
+      <tr>
+
+        <td>
+          <img src="images/2-3-1-1.png" align="middle" width="200px" />
+
+        </td>
+        <td>
+          <img src="images/2-3-2-1.png" align="middle" width="200px" />
+
+        </td>
+
+
+      </tr>
+      <tr>
+
+        <td>
+          <img src="images/2-3-1-2.png" align="middle" width="200px" />
+
+        </td>
+        <td>
+          <img src="images/2-3-2-2.png" align="middle" width="200px" />
+        </td>
+
+
+      </tr>
+      <tr>
+
+        <td>
+          <img src="images/2-3-1-3.png" align="middle" width="200px" />
+        </td>
+        <td>
+          <img src="images/2-3-2-3.png" align="middle" width="200px" />
+        </td>
+
+
+      </tr>
+      <tr>
+
+        <td>
+          <img src="images/2-3-1-4.png" align="middle" width="200px" />
+        </td>
+        <td>
+          <img src="images/2-3-2-4.png" align="middle" width="200px" />
+        </td>
+
+
+      </tr>
+      <tr>
+
+        <td>
+          <img src="images/2-3-1-5.png" align="middle" width="200px" />
+        </td>
+        <td>
+          <img src="images/2-3-2-5.png" align="middle" width="200px" />
+        </td>
+
+
+      </tr>
+      <tr>
+
+      <td>
+        <img src="images/2-3-1-6.png" align="middle" width="200px" />
+        <figcaption align="middle">Apple</figcaption>
+      </td>
+      <td>
+        <img src="images/2-3-2-6.png" align="middle" width="200px" />
+        <figcaption align="middle">Orange</figcaption>
+      </td>
+
+
+
+      </tr>
+    </table>
+  </div>
+
+  <h3 align="middle">2.4 Multiresolution Blending</h3>
+  <p>The key point of the multiresolution blending is to blend different frequency with differnt masks to create a
+    seamless effect. The approach first crate a Gaussian stack for the mask and Laplacian stacks for two images that
+    are going to stack. After that, for each layer of the stack, the algorithm blends them using `blended_img = (1 -
+    mask) * img1 + mask * img2`. As a result, different frequencies are blended with suitable masks.</p>
+    <br>
+
+  <p>The oraple is blended from an apple image and an orange image from the previous part.</p>
+  <div align="middle">
+    <table style="width=100%">
+      <tr>
+
+        <td>
+          <img src="images/2-4-1-1.png" align="middle" width="200px" />
+        </td>
+      </tr>
+      <tr>
+
+        <td>
+          <img src="images/2-4-1-2.png" align="middle" width="200px" />
+        </td>
+
+      </tr>
+      <tr>
+
+        <td>
+          <img src="images/2-4-1-3.png" align="middle" width="200px" />
+        </td>
+
+      </tr>
+      <tr>
+
+        <td>
+          <img src="images/2-4-1-4.png" align="middle" width="200px" />
+        </td>
+
+      </tr>
+      <tr>
+
+        <td>
+          <img src="images/2-4-1-5.png" align="middle" width="200px" />
+        </td>
+
+      </tr>
+      <tr>
+
+      <td>
+        <img src="images/2-4-1-6.png" align="middle" width="200px" />
+        <figcaption align="middle">Oraple</figcaption>
+      </td>
+
+      </tr>
+    </table>
+  </div>
+
+<br>
+  <p>I find a set of images collected by Pablo Rochat interesting. I decided to blend some images from his photo collection</p>
+<br>
+  <h4>Fishliper: blend the image of a fish with a slipper</h4>
+  <div align="middle">
+    <table style="width=100%">
+
+      <tr>
+
+        <td>
+          <img src="images/2-4-2-1.png" align="middle" width="400px" />
+          <figcaption align="middle">Slipper</figcaption>
+        </td>
+
+
+
+        <td>
+          <img src="images/2-4-2-2.png" align="middle" width="400px" />
+          <figcaption align="middle">Fish</figcaption>
+        </td>
+
+      </tr>
+      <tr>
+
+        <td>
+          <img src="images/2-4-2-3.png" align="middle" width="400px" />
+          <figcaption align="middle">Mask</figcaption>
+        </td>
+
+
+      <td>
+        <img src="images/2-4-2-4.png" align="middle" width="400px" />
+        <figcaption align="middle">Fishliper</figcaption>
+      </td>
+
+      </tr>
+    </table>
+  </div>
+  <h4>Sauceglasses: blend the image of some sauce with a sunglasses</h4>
+  <div align="middle">
+    <table style="width=100%">
+
+      <tr>
+
+        <td>
+          <img src="images/2-4-3-1.png" align="middle" width="400px" />
+          <figcaption align="middle">Sunglasses</figcaption>
+        </td>
+
+
+
+        <td>
+          <img src="images/2-4-3-2.png" align="middle" width="400px" />
+          <figcaption align="middle">Sauce</figcaption>
+        </td>
+
+      </tr>
+      <tr>
+
+        <td>
+          <img src="images/2-4-3-3.png" align="middle" width="400px" />
+          <figcaption align="middle">Mask</figcaption>
+        </td>
+
+
+      <td>
+        <img src="images/2-4-3-4.png" align="middle" width="400px" />
+        <figcaption align="middle">Sauceglasses</figcaption>
+      </td>
+
+      </tr>
+    </table>
+  </div>
+
+
+  </div>
+
+
+
+</body>
+
+</html>
