@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <style>
+    body {
+      padding: 100px;
+      width: 1000px;
+      margin: auto;
+      text-align: left;
+      font-weight: 300;
+      font-family: 'Open Sans', sans-serif;
+      color: #121212;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+  </style>
+  <title>CS 180 Project 3: Face Morphing</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+</head>
+
+
+<body>
+
+
+  <h1 align="middle">CS 180 Project 3: Face Morphing</h1>
+  <h2 align="middle">Jaxon Zeng</h2>
+
+  <br><br>
+
+  <div>
+
+    <h2 align="middle">Overview</h2>
+    <p>In this project I produce a "morph" animation of my face into my friend Ben's face. Then I compute the mean face of Brazilian people through morphing into the mean point. I also explore the mean face with my face and try to make me smile through morphing.</p>
+
+
+    <h2 align="middle">Part 1: Defining Correspondences</h2>
+    <p> I start by taking photos of me and my friend Ben.</p>
+
+
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+
+          <td>
+            <img src="images/1-1.png" align="middle" width="400px" />
+            <figcaption align="middle">Jaxon's Face</figcaption>
+          </td>
+          <td>
+            <img src="images/1-2.png" align="middle" width="400px" />
+            <figcaption align="middle">Ben's Face</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <p>Then I label both faces with the tool from <a href="https://cal-cs180.github.io/fa23/hw/proj3/tool.html" target="_blank" rel="noopener noreferrer">
+      Correspondence Tool
+  </a>. I use 88 points for each faces.</p>
+  <div align="middle">
+    <table style="width=100%">
+      <tr>
+
+        <td>
+          <img src="images/1-3.png" align="middle" width="400px" />
+          <figcaption align="middle">Jaxon's Face Labeled</figcaption>
+        </td>
+        <td>
+          <img src="images/1-4.png" align="middle" width="400px" />
+          <figcaption align="middle">Ben's Face Labeled</figcaption>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <p>In the end of this part, I triangulate two faces using scipy.spatial.Delaunay. For the first three parts, I use the same triangulation.</p>
+  <div align="middle">
+  <table style="width=100%">
+    <tr>
+
+      <td>
+        <img src="images/1-5.png" align="middle" width="400px" />
+        <figcaption align="middle">Jaxon's Face Triangulation</figcaption>
+      </td>
+      <td>
+        <img src="images/1-6.png" align="middle" width="400px" />
+        <figcaption align="middle">Ben's Face Triangulation</figcaption>
+      </td>
+    </tr>
+  </table>
+</div>
+    
+    
+
+
+    <br>
+    <br>
+
+    <h2 align="middle">Part 2: Compute the "Mid-way" Face</h2>
+
+    <p>In this part, I will compute the "Mid-way" face between Ben and me through morphing. 
+      <br>
+      1. Compute the middle position of our faces through average the labeling points of our faces.<br>
+      2. Calculate the affine transformation matrix from the original triagle to the average triangle. Then perform inverse warping by multiple the target image pixels with the inverse of affine transformation matrix. I loop over all the triangles to compute the "Mid-way" image.<br>
+      3. Cross-dissolve the warped image of Ben and my face to define the color the "Mid-way" Face.
+    </p>
+
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+    
+          <td>
+            <img src="images/2-3.png" align="middle" width="400px" />
+            <figcaption align="middle">Mid-way position on Jaxon's Face</figcaption>
+          </td>
+          <td>
+            <img src="images/2-4.png" align="middle" width="400px" />
+            <figcaption align="middle">Mid-way position on Ben's Face</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+    
+          <td>
+            <img src="images/1-1.png" align="middle" width="300px" />
+            <figcaption align="middle">Jaxon's Face</figcaption>
+          </td>
+          <td>
+            <img src="images/2-5.png" align="middle" width="300px" />
+            <figcaption align="middle">"Mid-way" Face</figcaption>
+          </td>
+          <td>
+            <img src="images/1-2.png" align="middle" width="300px" />
+            <figcaption align="middle">Ben's Face</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <br>
+    <h2 align="middle">Part 3: The Morph Sequence</h2>
+    <p>By applying different fraction in morphing and cross-dissolve between [0, 1], I create a smooth transition from my face to Ben's face.</p>
+
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+    
+          <td>
+            <img src="images/3-1.gif" align="middle" width="400px" />
+            <figcaption align="middle">Jaxon's Face to Ben's Face <br>(refresh the website if the face is not changing)</figcaption>
+          </td>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <br>
+    <h2 align="middle">Part 4: The "Mean Face" of a Population</h2>
+    <p>For this part, I compute the average face of a population from multiple images collected from the population. The set of images I use is the faces of Brazilians collected at the <a href="https://fei.edu.br/~cet/facedatabase.html" target="_blank" rel="noopener noreferrer">
+      Artificial Intelligence Laboratory of FEI
+  </a>. This dataset contains faces collected from 200 people. Two photos are taken for each person with one normal face and one smiling face.</p>
+
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="images/4-1.png" align="middle" width="300px" />
+            <figcaption align="middle">Example Brazilian Male Face <br>from the FEI Face Database</figcaption>
+          </td>
+          <td>
+            <img src="images/4-2.png" align="middle" width="300px" />
+            <figcaption align="middle">Example Brazilian Famale Face <br>from the FEI Face Database</figcaption>
+          </td>
+          <td>
+            <img src="images/4-6.png" align="middle" width="300px" />
+            <figcaption align="middle">Example Brazilian Famale Smiling Face <br>from the FEI Face Database</figcaption>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img src="images/4-3.png" align="middle" width="300px" />
+            <figcaption align="middle">Example Brazilian Male Face Triangulation<br>from the FEI Face Database</figcaption>
+          </td>
+          <td>
+            <img src="images/4-4.png" align="middle" width="300px" />
+            <figcaption align="middle">Example Brazilian Famale Face Triangulation<br>from the FEI Face Database</figcaption>
+          </td>
+          <td>
+            <img src="images/4-7.png" align="middle" width="300px" />
+            <figcaption align="middle">Example Brazilian Famale Smiling Face Triangulation<br>from the FEI Face Database</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <p>I compute the mean face of Brazilians using the similar process in part 2. I compute the average of all the labeling points of Brazilian faces and warp all the images toward the average position. Then I calculate the mean of all the faces' color to create the mean face.</p>
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="images/4-5.png" align="middle" width="400px" />
+            <figcaption align="middle">Mean Brazilian Normal Face</figcaption>
+          </td>
+          <td>
+            <img src="images/4-8.png" align="middle" width="400px" />
+            <figcaption align="middle">Mean Brazilian Smiling Face</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <p>I also warp some of the example faces into the mean position. </p>
+
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="images/4-1.png" align="middle" width="300px" />
+            <figcaption align="middle">Example Brazilian Male Face</figcaption>
+          </td>
+          <td>
+            <img src="images/4-2.png" align="middle" width="300px" />
+            <figcaption align="middle">Example Brazilian Famale Face</figcaption>
+          </td>
+          <td>
+            <img src="images/4-6.png" align="middle" width="300px" />
+            <figcaption align="middle">Example Brazilian Famale Smiling Face</figcaption>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img src="images/4-9.png" align="middle" width="300px" />
+            <figcaption align="middle">Example Brazilian Male Face <br>warp into mean position</figcaption>
+          </td>
+          <td>
+            <img src="images/4-10.png" align="middle" width="300px" />
+            <figcaption align="middle">Example Brazilian Famale Face <br>warp into mean position</figcaption>
+          </td>
+          <td>
+            <img src="images/4-11.png" align="middle" width="300px" />
+            <figcaption align="middle">Example Brazilian Famale Smiling Face <br>warp into mean position</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+
+    <p>I also try to warp my face into the mean Brazilian face position and warp the mean Brazilian to my face position.</p>
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="images/4-12.png" align="middle" width="300px" />
+            <figcaption align="middle">Jaxon's Face into <br>mean Brazilian Face Position</figcaption>
+          </td>
+          <td>
+            <img src="images/4-13.png" align="middle" width="300px" />
+            <figcaption align="middle">mean Brazilian face into <br>Jaxon's Face Position</figcaption>
+          </td>
+
+        </tr>
+
+      </table>
+    </div>
+    <br>
+    <br>
+    <h2 align="middle">Part 5: Caricatures: Extrapolating from the Mean</h2>
+    <p>I craeted caricatures of my face by exploring the position of my face away from the mean Brazilian face. I set the warping fraction out of the range of [0, 1] to create the funny result.</p>
+
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="images/5-1.png" align="middle" width="300px" />
+            <figcaption align="middle">Warping faction = -1</figcaption>
+          </td>
+          <td>
+            <img src="images/5-2.png" align="middle" width="300px" />
+            <figcaption align="middle">Warping fraction = 1</figcaption>
+          </td>
+
+        </tr>
+
+      </table>
+    </div>
+    <h2 align="middle">Bells and Whistles: Let Him Smile</h2>
+    I try to make my face smile by transforming my normal face into the position of mean smiling Brazilian faces.
+    The method of morphing is the same as before.
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="images/1-1.png" align="middle" width="300px" />
+            <figcaption align="middle">Warping faction = -1</figcaption>
+          </td>
+          <td>
+            <img src="images/6-2.png" align="middle" width="300px" />
+            <figcaption align="middle">Warping fraction = 1</figcaption>
+          </td>
+          <td>
+            <img src="images/4-8.png" align="middle" width="300px" />
+            <figcaption align="middle">Warping fraction = 1</figcaption>
+          </td>
+
+        </tr>
+
+      </table>
+    </div>
+  </div>
+
+
+
+</body>
+
+</html>
