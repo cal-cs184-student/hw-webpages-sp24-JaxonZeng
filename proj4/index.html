@@ -1,0 +1,523 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <style>
+    body {
+      padding: 100px;
+      width: 1000px;
+      margin: auto;
+      text-align: left;
+      font-weight: 300;
+      font-family: 'Open Sans', sans-serif;
+      color: #121212;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+  </style>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+
+
+
+  <title>CS 180 Project 4: Image Warping and Mosaicing</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+</head>
+
+
+<body>
+
+
+  <h1 align="middle">CS 180 Project 4: Image Warping and Mosaicing</h1>
+  <h2 align="middle">Jaxon Zeng</h2>
+
+  <br><br>
+
+  <div>
+
+
+
+
+    <h2 align="middle">Part A</h2>
+    <h3 align="middle">Shoot the Pictures</h3>
+    <p>To prepare for this project, I have shot several sets of pictures for later steps. In each set, I setup several
+      correspondence points for each pair of pictures.</p>
+    The first set is the beautiful San Francisco skyline during a clear night. I took the set with a camera on a long
+    focal length lens.
+
+    <h4 align="middle">San Francisco Skyline</h4>
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="images/1-1-1.png" align="middle" width="300px" />
+            <figcaption align="middle">SF 1</figcaption>
+          </td>
+          <td>
+            <img src="images/1-1-2.png" align="middle" width="300px" />
+            <figcaption align="middle">SF 2</figcaption>
+          </td>
+          <td>
+            <img src="images/1-1-3.png" align="middle" width="300px" />
+            <figcaption align="middle">SF 3</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div align="middle">
+      <table style="width=100%">
+        <h5>Correspondence 1-2</h5>
+        <tr>
+          <td>
+            <img src="images/1-1-4.png" align="middle" width="500px" />
+          </td>
+          <td>
+            <img src="images/1-1-5.png" align="middle" width="500px" />
+
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div align="middle">
+      <table style="width=100%">
+        <h5>Correspondence 2-3</h5>
+        <tr>
+
+          <td>
+            <img src="images/1-1-6.png" align="middle" width="500px" />
+          </td>
+          <td>
+            <img src="images/1-1-7.png" align="middle" width="500px" />
+
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <br>
+    <h4 align="middle">Village under Snow Mountain</h4>
+    <p>The second set is a village under the beautiful mountain. I took this set with a wide angle lens.</p>
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="images/1-2-1.png" align="middle" width="300px" />
+            <figcaption align="middle">MT 1</figcaption>
+          </td>
+          <td>
+            <img src="images/1-2-2.png" align="middle" width="300px" />
+            <figcaption align="middle">MT 2</figcaption>
+          </td>
+          <td>
+            <img src="images/1-2-3.png" align="middle" width="300px" />
+            <figcaption align="middle">MT 3</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div align="middle">
+      <table style="width=100%">
+        <h5>Correspondence 1-2</h5>
+        <tr>
+          <td>
+            <img src="images/1-2-4.png" align="middle" width="500px" />
+          </td>
+          <td>
+            <img src="images/1-2-5.png" align="middle" width="500px" />
+
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div align="middle">
+      <table style="width=100%">
+        <h5>Correspondence 2-3</h5>
+        <tr>
+
+          <td>
+            <img src="images/1-2-6.png" align="middle" width="500px" />
+          </td>
+          <td>
+            <img src="images/1-2-7.png" align="middle" width="500px" />
+
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <br>
+    <h4 align="middle">My Living Room</h4>
+    <p>I took the third set randomly in my living room with my phone.</p>
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="images/1-3-1.png" align="middle" width="300px" />
+            <figcaption align="middle">RM 1</figcaption>
+          </td>
+          <td>
+            <img src="images/1-3-2.png" align="middle" width="300px" />
+            <figcaption align="middle">RM 2</figcaption>
+          </td>
+          <td>
+            <img src="images/1-3-3.png" align="middle" width="300px" />
+            <figcaption align="middle">RM 3</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div align="middle">
+      <table style="width=100%">
+        <h5>Correspondence 1-2</h5>
+        <tr>
+          <td>
+            <img src="images/1-3-4.png" align="middle" width="500px" />
+          </td>
+          <td>
+            <img src="images/1-3-5.png" align="middle" width="500px" />
+
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div align="middle">
+      <table style="width=100%">
+        <h5>Correspondence 2-3</h5>
+        <tr>
+
+          <td>
+            <img src="images/1-3-6.png" align="middle" width="500px" />
+          </td>
+          <td>
+            <img src="images/1-3-7.png" align="middle" width="500px" />
+
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <h3 align="middle">Recover Homographies</h3>
+    <p>To recover homographies, I need to find a matrix to perform projective mapping between correspondence points. The
+      matrix has 8 degrees of freedom and the lower right corner is set to 1 since all my images are taken with the same
+      focal length within the same set.</p>
+    <p>
+      $$
+      H = \begin{bmatrix}
+      h_1 & h_2 & h_3 \\
+      h_4 & h_5 & h_6 \\
+      h_7 & h_8 & 1
+      \end{bmatrix}
+      $$
+
+      For each correspondence points $p'$ and $p$, I will have $p' = Hp$.
+      $$
+      \begin{bmatrix}
+      x' \\
+      y' \\
+      1
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+      h_1 & h_2 & h_3 \\
+      h_4 & h_5 & h_6 \\
+      h_7 & h_8 & 1
+      \end{bmatrix}
+      \begin{bmatrix}
+      x \\
+      y \\
+      1
+      \end{bmatrix}
+      $$
+
+      Expanding the matrix I have:
+      $$
+      \begin{aligned}
+      x' &= h_1 x + h_2 y + h_3 \\
+      y' &= h_4 x + h_5 y + h_6 \\
+      w' &= h_7 x + h_8 y + 1
+      \end{aligned}
+      $$
+
+      To set the scaling factor to 1, I normalized the result by the third row:
+      $$
+      x' = \frac{h_1 x + h_2 y + h_3}{h_7 x + h_8 y + 1}
+      $$
+      $$
+      y' = \frac{h_4 x + h_5 y + h_6}{h_7 x + h_8 y + 1}
+      $$
+      Simplify the result we have:
+      $$
+      h_1 x + h_2 y + h_3 - x' (h_7 x + h_8 y + 1) = 0
+      $$
+      $$
+      h_4 x + h_5 y + h_6 - y' (h_7 x + h_8 y + 1) = 0
+      $$
+      Write this result back to matrix form:
+      $$
+      \begin{align}
+
+      \begin{bmatrix}
+      -x & -y & -1 & 0 & 0 & 0 & x' x & x' y & x' \\
+      0 & 0 & 0 & -x & -y & -1 & y' x & y' y & y'
+      \end{bmatrix}&\begin{bmatrix}
+      h_1 \\
+      h_2 \\
+      h_3 \\
+      h_4 \\
+      h_5 \\
+      h_6 \\
+      h_7 \\
+      h_8 \\
+      1
+      \end{bmatrix} &= &0 \\
+
+      A&h &= &0
+      \end{align}
+      $$
+
+      To eliminate error, I set more correspondence points than the equation needed. When solving the matrix, I try to
+      get the minimum error solution. I use Singular Value Decomposition for $H$.
+      <br>
+      In SVD, we decomposite $A$ into three components.
+      $$
+      A = U \Sigma V^T
+      $$
+      The solution for $H$ is the last column of $V^T$. I reshape the last column to a $3\times3$ matrix. And normalized
+      the matrix based on the bottom right corner to retrive $H$.
+
+    </p>
+
+    <h3 align="middle">Warp the Images</h3>
+    After I get the recovery matrix from correspondence points, I can simply use forward warpping to transform one image
+    into another by multiplying the coordinates with $H$. To map the original image into the new transformed image, I
+    use <code>scipy.interpolate.griddata</code> to interpolate the color of the new coordinates. I also calculate the
+    the size of output image by the four corners of the new image.
+    <br>
+    To test the result of the warping function, I rectify some images to make parts of the images into a shape of
+    square.
+
+    <div align="middle">
+      <table style="width=100%">
+        <h5>TV into square</h5>
+        <tr>
+          <td>
+            <img src="images/3-1-1.png" align="middle" width="500px" />
+          </td>
+          <td>
+            <img src="images/3-1-2.png" align="middle" width="500px" />
+
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div align="middle">
+      <table style="width=100%">
+        <h5>Road Sign into square</h5>
+        <tr>
+          <td>
+            <img src="images/3-2-1.png" align="middle" width="500px" />
+          </td>
+          <td>
+            <img src="images/3-2-2.png" align="middle" width="500px" />
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <h3 align="middle">Blend Images into a Mosaic</h3>
+    Here comes the most interesting part of the project. I can finally blend the images into a single panorama. I use
+    the warping function to warp the images into the result shape. Then I compute their bounding box to decide their
+    position in the final image. Then I align each image based on their position.
+    At first I use a hard blending that directly put the three images into the final image.
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="images/1-1-1.png" align="middle" width="300px" />
+            <figcaption align="middle">SF 1</figcaption>
+          </td>
+          <td>
+            <img src="images/1-1-2.png" align="middle" width="300px" />
+            <figcaption align="middle">SF 2</figcaption>
+          </td>
+          <td>
+            <img src="images/1-1-3.png" align="middle" width="300px" />
+            <figcaption align="middle">SF 3</figcaption>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img src="images/4-1-1.png" align="middle" width="300px" />
+            <figcaption align="middle">SF 1</figcaption>
+          </td>
+          <td>
+            <img src="images/4-1-2.png" align="middle" width="300px" />
+            <figcaption align="middle">SF 2</figcaption>
+          </td>
+          <td>
+            <img src="images/4-1-3.png" align="middle" width="300px" />
+            <figcaption align="middle">SF 3</figcaption>
+          </td>
+        </tr>
+
+      </table>
+    </div>
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="images/4-1-4.png" align="middle" width="800px" />
+            <figcaption align="middle">SF Pano</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <br>
+
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="images/1-2-1.png" align="middle" width="300px" />
+            <figcaption align="middle">MT 1</figcaption>
+          </td>
+          <td>
+            <img src="images/1-2-2.png" align="middle" width="300px" />
+            <figcaption align="middle">MT 2</figcaption>
+          </td>
+          <td>
+            <img src="images/1-2-3.png" align="middle" width="300px" />
+            <figcaption align="middle">MT 3</figcaption>
+          </td>
+        <tr>
+          <td>
+            <img src="images/4-2-1.png" align="middle" width="300px" />
+            <figcaption align="middle">MT 1</figcaption>
+          </td>
+          <td>
+            <img src="images/4-2-2.png" align="middle" width="300px" />
+            <figcaption align="middle">MT 2</figcaption>
+          </td>
+          <td>
+            <img src="images/4-2-3.png" align="middle" width="300px" />
+            <figcaption align="middle">MT 3</figcaption>
+          </td>
+        </tr>
+
+      </table>
+    </div>
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="images/4-2-4.png" align="middle" width="800px" />
+            <figcaption align="middle">MT Pano</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <br>
+
+
+
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="images/1-3-1.png" align="middle" width="300px" />
+            <figcaption align="middle">RM 1</figcaption>
+          </td>
+          <td>
+            <img src="images/1-3-2.png" align="middle" width="300px" />
+            <figcaption align="middle">RM 2</figcaption>
+          </td>
+          <td>
+            <img src="images/1-3-3.png" align="middle" width="300px" />
+            <figcaption align="middle">RM 3</figcaption>
+          </td>
+        <tr>
+          <td>
+            <img src="images/4-3-1.png" align="middle" width="300px" />
+            <figcaption align="middle">RM 1</figcaption>
+          </td>
+          <td>
+            <img src="images/4-3-2.png" align="middle" width="300px" />
+            <figcaption align="middle">RM 2</figcaption>
+          </td>
+          <td>
+            <img src="images/4-3-3.png" align="middle" width="300px" />
+            <figcaption align="middle">RM 3</figcaption>
+          </td>
+        </tr>
+
+      </table>
+    </div>
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="images/4-3-4.png" align="middle" width="800px" />
+            <figcaption align="middle">RM Pano</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <br>
+
+    The direct blending works fine for the first set of images. However, it's obvious that the panorama of the second
+    and third set did not blend smoothly. To create a smooth blending between images, I use the Laplacian multilayer
+    blending method from project 2. I use a gaussian filter to create a mask that smoothly merge the edge of two images
+    together.
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="images/4-1-5.png" align="middle" width="800px" />
+            <figcaption align="middle">SF Pano Smooth</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="images/4-2-5.png" align="middle" width="800px" />
+            <figcaption align="middle">MT Pano Smooth</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="images/4-3-5.png" align="middle" width="800px" />
+            <figcaption align="middle">RM Pano Smooth</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+
+</body>
+
+</html>
