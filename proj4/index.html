@@ -517,6 +517,174 @@
       </table>
     </div>
 
+    <h2 align="middle">Part B</h2>
+    In this part, instead of manually defined correspondence points, I will implement the method to auto align images
+    and create the final mosaics. I will follow the paper <a
+      href=https://inst.eecs.berkeley.edu/~cs180/fa24/hw/proj4/Papers/MOPS.pdf>“Multi-Image Matching using Multi-Scale
+      Oriented Patches” by Brown et al</a> to establish correspondence in a set of images. Then used the 4-point RANSAC
+    method to compute homography. At last, I will blend the image using the same method as part A.
+    <h3 align="middle">Detecting Corners</h3>
+    For the first step of corner detection, I used the Harris Corner Detection algorithm. I used the sample code
+    <code>get_harris_corners</code>, where the Harris response is calculated by
+    <code>skimage.feature.corner_harris</code> and then pick local maxima as corners by
+    <code>skimage.feature.peak_local_max</code>.
+    <br>
+    As the algorithm is superlinear to number of corners in the images, I need to reduce the number of corners in order
+    to speed up the algorithm. I followed the section 3 of the paper to implement Adaptive Non-Maximal Suppression. To
+    perform ANMS, I calculated the pairwise distance using <code>dist2</code> from sample code. Then for each corner, I
+    calculated the suppression radius by the minimum distance for it to meet another strong corner (strong means a high
+    harris response value). Then I will sort the radii of corners and return the given number of points with the highest
+    radii values. By this suppression algorithm, the remaining points are strong and evenly-distributed.
+
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="imagesb/1-1-1.png" align="middle" width="500px" />
+            <figcaption align="middle">RM1 Detected Corners</figcaption>
+          </td>
+          <td>
+            <img src="imagesb/1-1-2.png" align="middle" width="500px" />
+            <figcaption align="middle">RM1 ANMS Detected Corners (300 points)</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <br>
+    <h3 align="middle">Feature Descriptor</h3>
+    In the next step, I extract the features of each corners so that they could be used in feature matching for the next
+    step. I used a patch of 8$\times$8 patch of pixels as the feature. I first sample a 40$\times$40 window around the
+    corner and then use gaussian filter to blur the window. Then I call <code>cv2.resize</code> to resize the window
+    into a 8$\times$8 patch of windows. Lastly, I normalized the patch as the feature for the corner.
+
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="imagesb/2-1-1.png" align="middle" width="300px" />
+            <figcaption align="middle">Sample Feature Descriptor 1</figcaption>
+          </td>
+          <td>
+            <img src="imagesb/2-1-2.png" align="middle" width="300px" />
+            <figcaption align="middle">Sample Feature Descriptor 2</figcaption>
+          </td>
+          <td>
+            <img src="imagesb/2-1-3.png" align="middle" width="300px" />
+            <figcaption align="middle">Sample Feature Descriptor 3</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <br>
+    <h3 align="middle">Feature Matching</h3>
+    Following the section 5 of the paper, I implement the feature matching to match the correspondence corners. I first
+    calculate the distance between two set of descriptor by the norm of difference. By Lowe of thresholding, for a descriptor, if the distance of
+    the closest descriptor is under a ratio of the distance of the second closest descriptor, then the two corners match.
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="imagesb/3-1-1.png" align="middle" width="1000px" />
+            <figcaption align="middle">Matching corners between SF1 and SF2</figcaption>
+          </td>
+        </tr>
+          
+        <tr>
+          <td>
+            <img src="imagesb/3-1-2.png" align="middle" width="1000px" />
+            <figcaption align="middle">Matching corners between SF2 and SF3</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <br>
+
+    <h3 align="middle">RANSAC</h3>
+    I used the standard 4-point RANSAC method to compute a homography estimate. In the RANSAC loop, the algorithm will calculate:<br>
+    1. Select four feature pairs (at random)<br>
+    2. Compute homography $H$ using the method from first part.<br>
+    3. Compute the warpped points and determine inliers where $dist(p_i',Hp_i)<\varepsilon$.<br>
+    4. Keep the largest set of inlier<br>
+    After the loop finishes, recompute H estimate on all of the inliers.
+    <div align="middle">
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="imagesb/4-1-1.png" align="middle" width="800px" />
+            <figcaption align="middle">Inliers for $Hp_i$(green), $p_i'$(red) on SF2</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <br>
+
+    <h3 align="middle">Auto Mosaic</h3>
+    Integrating all the methods, I can perform auto mosaics by simply passing in images.
+    <br>
+    <br>
+    <div align="middle">
+      SF
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="imagesb/5-1-1.png" align="middle" width="1000px" />
+            <figcaption align="middle">SF Autostitching</figcaption>
+          </td>
+        </tr>
+          
+        <tr>
+          <td>
+            <img src="images/4-1-5.png" align="middle" width="1000px" />
+            <figcaption align="middle">SF Manual Stitching</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <br>
+    <div align="middle">
+      MT
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="imagesb/5-1-2.png" align="middle" width="1000px" />
+            <figcaption align="middle">MT Autostitching</figcaption>
+          </td>
+        </tr>
+          
+        <tr>
+          <td>
+            <img src="images/4-2-5.png" align="middle" width="1000px" />
+            <figcaption align="middle">MT Manual Stitching</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <br>
+    <div align="middle">
+      RM
+      <table style="width=100%">
+        <tr>
+          <td>
+            <img src="imagesb/5-1-3.png" align="middle" width="1000px" />
+            <figcaption align="middle">RM Autostitching</figcaption>
+          </td>
+        </tr>
+          
+        <tr>
+          <td>
+            <img src="images/4-3-5.png" align="middle" width="1000px" />
+            <figcaption align="middle">RM Manual Stitching</figcaption>
+          </td>
+        </tr>
+      </table>
+    </div>
+
 
 </body>
 
