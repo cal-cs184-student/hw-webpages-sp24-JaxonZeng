@@ -1,0 +1,677 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <style>
+    body {
+      padding: 100px;
+      width: 1000px;
+      margin: auto;
+      text-align: left;
+      font-weight: 300;
+      font-family: 'Open Sans', sans-serif;
+      color: #121212;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+  </style>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+
+
+
+  <title>CS 180 Final Project: Neural Radiance Field</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+</head>
+
+
+<body>
+
+
+  <h1 align="middle">CS 180 Final Project: Neural Radiance Field</h1>
+  <h2 align="middle">Jaxon Zeng</h2>
+
+  <br><br>
+
+  <div>
+    <h2 align="middle">Overview</h2>
+    <!-- done -->
+    This project implements the NeRF (Neural Radiance Field) introduced by the paper <a
+      href="https://arxiv.org/pdf/2003.08934">NeRF: Representing Scenes as Neural Radiance Fields for View
+      Synthesis</a>. I first implement a simple 2D version of NeRF to simulate 2D images. Then in the second part I
+    implement a 3D NeRF model and test it with the lego scene from the paper.
+
+    <br><br>
+
+    <h2 align="middle">Part 1: Fit a Neural Field to a 2D Image</h2>
+    <h3 align="middle">Introduction</h3>
+
+
+    <p>The <b>2D Neural Radiance Field (NeRF)</b> is a simplified version of the full 3D NeRF that maps
+      <b>2D input coordinates</b> (e.g., pixel locations) to output <b>color intensities</b>.
+    </p>
+    <hr>
+
+    <h3"><b>1. Problem Statement</b></h3>
+      <p>Given a 2D image $ I $ of size $ H \times W $:</p>
+      <ul>
+        <li>For a pixel at position $\mathbf{p} = (u, v) $, where $u$ and $v$ are the pixel's horizontal and vertical
+          coordinates, <b>predict the color intensity</b> $\mathbf{c} = (r, g, b) $</li>
+      </ul>
+      <p>This can be expressed as a function:
+        $$
+        \mathbf{c} = f_\theta(\mathbf{p}),
+        $$
+        where:</p>
+      <ul>
+        <li>$ \mathbf{p} $: Input 2D pixel position, normalized to $0, 1]\$or $-1, 1]$.</li>
+        <li>$ \mathbf{c} $: Output color at that position.</li>
+        <li>$ f_\theta $: Neural network parameterized by weights $\theta $</li>
+      </ul>
+      <hr>
+
+      <h3><b>2. Positional Encoding (Fourier Features)</b></h3>
+      <p>A standard neural network struggles to model high-frequency signals like textures or sharp edges in images. To
+        overcome this, <b>Fourier features</b> map the input 2D pixel positions into a higher-dimensional space.
+      </p>
+      <h4>Positional Encoding Formula:</h4>
+      <p>For a 2D coordinate $ \mathbf{p} = (u, v) $ apply sinusoidal encoding:
+        $$
+        PE(\mathbf{p}) = \left[ u, v, \sin(2^0 \pi u), \cos(2^0 \pi u), \sin(2^1 \pi u), \cos(2^1 \pi u), \dots,
+        \sin(2^L \pi u), \cos(2^L \pi u), \sin(2^0 \pi v), \cos(2^0 \pi v), \dots, \sin(2^L \pi v), \cos(2^L \pi v)
+        \right].
+        $$
+        Where:</p>
+      <ul>
+        <li>$L$: Highest frequency level (higher $L $ captures finer details).</li>
+        <li>Output dimension: $2 \times (2L + 1) $which is much larger than the 2D input.</li>
+      </ul>
+      <p>This creates a <b>high-dimensional embedding</b> for $ \mathbf{p} $ allowing the network to learn more
+        complex patterns.</p>
+      <hr>
+
+      <h3><b>3. Neural Network (MLP)</b></h3>
+      <h4>Input:</h4>
+      <p>The positional encoding $PE(\mathbf{p})$, which has shape $D_{\text{enc}} = 2 \times (2L + 1) $</p>
+      <h4>Output:</h4>
+      <p>The predicted color $\mathbf{c} = (r, g, b)$ for the pixel:
+        $$
+        \mathbf{c} = f_\theta(PE(\mathbf{p})).
+        $$</p>
+      <h4>Architecture:</h4>
+      <ul>
+        <li><b>Input Layer</b>: Accepts $PE(\mathbf{p})$.</li>
+        <li><b>Hidden Layers</b>: Several fully connected layers with non-linear activations (ReLU or others).
+        </li>
+        <li><b>Output Layer</b>: A linear layer with 3 output nodes (for $r, g, b$).</li>
+        <div align="middle">
+          <table style="width=100%">
+            <tr>
+              <td align="middle">
+                <img src="imagesa/mlp_img.jpg" align="middle" width="700px" />
+                <figcaption align="middle">Mlp Architecture</figcaption>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+      </ul>
+      <h4>Forward Pass:</h4>
+      <ol>
+        <li>Compute $PE(\mathbf{p}) $from the input pixel position.</li>
+        <li>Pass $PE(\mathbf{p}) $ through the MLP to predict $\mathbf{c} $</li>
+      </ol>
+
+      <hr>
+      <h3><b>4. Loss Function</b></h3>
+      <p>The model uses a standard <b>Mean Squared Error (MSE) loss</b> as a loss function for training. The model is
+        train to minimize the <b>MSE</b> difference between the predicted color $\mathbf{c}_{\text{pred}}$ and the
+        ground
+        truth
+        color $\mathbf{c}_{\text{true}}$.</p>
+      <p>
+        To evaluate the reconstruction quality of a image, I also calculate <a
+          href="https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio">peak signal-to-noise ration (PSNR)</a>.
+        <b>PSNR</b> is calculated from the <b>MSE</b>:
+        $$PSNR=10\cdot\log_{10}(\frac{1}{MSE})$$
+      </p>
+      <hr>
+      <h3 id="-5-training-and-rendering-"><b>5. Training and Rendering</b></h3>
+      <h4 id="training-">Training:</h4>
+      <ol>
+        <li>Sample random pixel positions $\mathbf{p}$ and their ground truth colors $\mathbf{c}_{\text{true}}$ from the
+          training image.</li>
+        <li>Compute the positional encoding $PE(\mathbf{p})$.</li>
+        <li>Pass $PE(\mathbf{p}) $through the MLP to predict $\mathbf{c}_{\text{pred}}$.</li>
+        <li>Compute the loss and update the model using backpropagation.</li>
+      </ol>
+      <h4 id="rendering-">Rendering:</h4>
+      <p>To reconstruct the full image:</p>
+      <ol>
+        <li>Pass all pixel positions $\mathbf{p}$ in the image grid through the trained network.</li>
+        <li>Predict colors $\mathbf{c}$ for all pixels.</li>
+        <li>Reshape the predictions into an $H \times W \times 3 $ image.</li>
+      </ol>
+      <hr>
+
+
+
+
+
+
+
+
+      <br>
+      <br>
+      <h3 align="middle">Fox</h3>
+      I chooses the fox image for the training of my 2D MLP network.
+      <div align="middle">
+        <table style="width=100%">
+          <tr>
+            <td align="middle">
+              <img src="imagesa/fox.jpg" align="middle" width="300px" />
+              <figcaption align="middle">Fox Original Image</figcaption>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <br><br>
+
+      I train my model with $L=10$ and hidden dimension of $256$ for $5000$ iterations and batch size of $1000$. My
+      learning rate is $1e-3$. The model reach a PSNR of $26.39$.
+
+
+      <div align="middle">
+        <table style="width=100%">
+          <tr>
+            <td align="middle">
+              <img src="imagesa/1-1.png" align="middle" width="500px" />
+              <figcaption align="middle">MSE Loss</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesa/1-2.png" align="middle" width="500px" />
+              <figcaption align="middle">PSNR</figcaption>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div align="middle">
+        <table style="width=100%">
+          <tr>
+            <td align="middle">
+              <img src="imagesa/2-1.png" align="middle" width="300px" />
+              <figcaption align="middle">Predicted Image iteration 1</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesa/2-2.png" align="middle" width="300px" />
+              <figcaption align="middle">Predicted Image iteration 1000</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesa/2-3.png" align="middle" width="300px" />
+              <figcaption align="middle">Predicted Image iteration 2000</figcaption>
+            </td>
+          </tr>
+
+          <tr>
+            <td align="middle">
+              <img src="imagesa/2-4.png" align="middle" width="300px" />
+              <figcaption align="middle">Predicted Image iteration 3000</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesa/2-5.png" align="middle" width="300px" />
+              <figcaption align="middle">Predicted Image iteration 4000</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesa/2-6.png" align="middle" width="300px" />
+              <figcaption align="middle">Predicted Image iteration 5000</figcaption>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <br><br>
+      <h4 align="middle">Hyperparameter Tunning</h4>
+      My first try for hyperparameter tunning is changing the hidden layers to $512$. It slightly increase the PSNR to
+      $27.48$, which means a higher quality in reconstructing the image.
+      <div align="middle">
+        <table style="width=100%">
+          <tr>
+            <td align="middle">
+              <img src="imagesa/3-1.png" align="middle" width="500px" />
+              <figcaption align="middle">MSE Loss</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesa/3-2.png" align="middle" width="500px" />
+              <figcaption align="middle">PSNR</figcaption>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div align="middle">
+        <table style="width=100%">
+          <tr>
+            <td align="middle">
+              <img src="imagesa/2-6.png" align="middle" width="500px" />
+              <figcaption align="middle">256 hidden layers</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesa/4-1.png" align="middle" width="500px" />
+              <figcaption align="middle">512 hidden layers</figcaption>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <br><br>
+      My another try for hyperparameter tunning is changing the max frequency $L$ to $15$, while keeping other
+      parameters the same as my original trained model. The PSNR this model reaches is $26.55$. But the model comes to
+      an overfitting to the image and actually cause a bad reconstruction quality.
+      <div align="middle">
+        <table style="width=100%">
+          <tr>
+            <td align="middle">
+              <img src="imagesa/5-1.png" align="middle" width="500px" />
+              <figcaption align="middle">MSE Loss</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesa/5-2.png" align="middle" width="500px" />
+              <figcaption align="middle">PSNR</figcaption>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div align="middle">
+        <table style="width=100%">
+          <tr>
+            <td align="middle">
+              <img src="imagesa/2-6.png" align="middle" width="500px" />
+              <figcaption align="middle">max frequency 10</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesa/6-1.png" align="middle" width="500px" />
+              <figcaption align="middle">max frequency 15</figcaption>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+
+
+
+
+
+
+      <h2 align="middle">Part 2: Fit a Neural Radiance Field from Multi-view Images</h2>
+
+      <h3 align="middle">Introduction</h3>
+
+      <p>In <b>Part 2</b> of the NeRF implementation, I deal with <b>ray sampling, point sampling, neural
+          network prediction, and volume rendering</b> to compute the final pixel colors of an image.</p>
+      <hr>
+
+
+      <h3><b>1: Ray Sampling</b></h3>
+      <p>Each pixel in the image corresponds to a <b>camera ray</b> in 3D space. A ray is parameterized as:
+        $$
+        \mathbf{r}(t) = \mathbf{r_o} + t \cdot \mathbf{r_d}, \quad t \geq 0
+        $$
+        Where:</p>
+      <ul>
+        <li>$ \mathbf{r_o} $: Ray origin (camera position in world coordinates).</li>
+        <li>$ \mathbf{r_d} $: Ray direction (unit vector pointing into the scene).</li>
+        <li>$t$: Scalar controlling the depth along the ray.</li>
+      </ul>
+      <h4><b>Ray Sampling Process</b></h4>
+      <p>For an image of size $H\times W$</p>
+      <ol>
+        <li>Compute the camera ray direction for each pixel using the camera intrinsics ($K$) and camera-to-world
+          transformation ($c2w$).</li>
+        <li>For pixel coordinates ($u, v$):<ul>
+            <li>Convert them to normalized camera coordinates.</li>
+            <li>Map camera cordinates to world coordinates using $K$ and $c2w$</li>
+          </ul>
+        </li>
+      </ol>
+      <h4><b>Mathematics</b></h4>
+      <p>$$
+        \mathbf{d}_{\text{camera}} = \frac{K^{-1}}{s} \cdot \mathbf{p}_{\text{pixel}}
+        $$
+        $$
+        \mathbf{d}_{\text{world}} = c2w \cdot \mathbf{d}_{\text{camera}}
+        $$
+        Where:</p>
+      <ul>
+        <li>$ \mathbf{p}_{\text{pixel}} = \begin{bmatrix} u \\ v \\ 1 \end{bmatrix}$: Homogeneous pixel coordinate.</li>
+        <li>$K = \begin{bmatrix} f_x & 0 & o_x \\ 0 & f_y & o_y \\ 0 & 0 & 1 \end{bmatrix}$: Camera intrinsic matrix.
+        </li>
+        <li>$c2w = \begin{bmatrix} R_{3\times3} & t\\ 0_{1\times3} & 1\end{bmatrix}^{-1}$: Camera-to-world
+          transformation matrix.</li>
+        <li>$s=z_c$: the depth of this point along the optical axis. $s$ is choose to equal $1$ in calculation.</li>
+      </ul>
+      <hr>
+
+
+      <h3><b>2: Point Sampling Along Rays</b></h3>
+      <p>For each ray, sample $N $ points between near and far bounds ($t_{\text{near}}$ and $t_{\text{far}}$):
+        $$
+        t_i = t_{\text{near}} + i \cdot \Delta t, \quad i \in {0, 1, \dots, N-1}
+        $$
+        Where:</p>
+      <ul>
+        <li>$\Delta t = \frac{t_{\text{far}} - t_{\text{near}}}{N}$: Step size.</li>
+        <li>$t_i$: Depth value for the $i$-th sampled point.</li>
+      </ul>
+      <p>The 3D position of each sampled point is:
+        $$
+        \mathbf{x}_i = \mathbf{r_o} + t_i \cdot \mathbf{r_d}
+        $$
+        Where:</p>
+      <ul>
+        <li>$\mathbf{x}_i $: 3D world coordinate of the $i$-th point along the ray.</li>
+      </ul>
+      <hr>
+
+
+      <h3><b>3: Neural Network (MLP)</b></h3>
+      <p>The goal of the neural network is to predict:</p>
+      <ol>
+        <li><b>Density ($\sigma$)</b>: Indicates how much light is absorbed or scattered at a sampled point.</li>
+        <li><b>Color ($\mathbf{c}$)</b>: The emitted RGB radiance from a point.</li>
+      </ol>
+      <h4><b>Inputs to the Neural Network</b></h4>
+      <p>For a point $\mathbf{x}_i $ sampled along a ray:</p>
+      <ol>
+        <li>
+          <p><b>Position Encoding</b>:
+            Apply Fourier positional encoding ($PE$) to $\mathbf{x}_i$
+            $$
+            PE(\mathbf{x}_i) = \left[ \mathbf{x}_i, \sin(2^0 \pi \mathbf{x}_i), \cos(2^0 \pi \mathbf{x}_i), \sin(2^1
+            \pi \mathbf{x}_i), \cos(2^1 \pi \mathbf{x}_i), \dots \right]
+            $$
+            Encodes spatial frequencies to allow the network to represent high-frequency details.</p>
+        </li>
+        <li>
+          <p><b>View Direction</b>:
+            The ray direction $ \mathbf{d}$ is also encoded using positional encoding ($PE(\mathbf{d})$).</p>
+        </li>
+      </ol>
+      <p>The neural network maps:
+        $$
+        f_\theta(PE(\mathbf{x}_i), PE(\mathbf{d})) \to (\sigma_i, \mathbf{c}_i)
+        $$
+        Where:</p>
+      <ul>
+        <li>$ \sigma_i$: Density at point $\mathbf{x}_i $</li>
+        <li>$\mathbf{c}_i$: RGB color emitted from point $\mathbf{x}_i $</li>
+      </ul>
+
+      <h4>Architecture:</h4>
+
+      <div align="middle">
+        <table style="width=100%">
+          <tr>
+            <td align="middle">
+              <img src="imagesa/mlp_nerf.png" align="middle" width="900px" />
+              <figcaption align="middle">Mlp Architecture</figcaption>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <hr>
+
+
+      <h3><b>4: Volume Rendering</b></h3>
+      <p>The final color for a pixel is computed by integrating along the ray using the density ($\sigma$) and color
+        ($\mathbf{c}$) predictions from the network.</p>
+      <h4><b>Volume Rendering Equation</b></h4>
+      <p>The discrete approximation of the volume rendering equation is:
+        $$
+        \mathbf{C}(\mathbf{r}) = \sum_{i=1}^N T_i \cdot \alpha_i \cdot \mathbf{c}_i
+        $$
+        Where:</p>
+      <ul>
+        <li>$\mathbf{C}(\mathbf{r}) $: Final color for the ray.</li>
+        <li>$ T_i =\exp (-\sum_{j=1}^{i-1}\sigma_j\delta_j)= \prod_{j=1}^{i-1} \left( 1 - \alpha_j \right) $:
+          Transmittance, the probability of a ray not terminating before sample location $i$.</li>
+        <li>$\alpha_i = 1 - \exp(-\sigma_i \delta_i) $: The probability of terminating at sample location
+          $i$.
+        </li>
+        <li>$\mathbf{c}_i $: Color emitted at the $i$-th point.</li>
+      </ul>
+      <hr>
+
+
+      <h3><b>5: Loss Function</b></h3>
+      <p>The loss function is similar to part 1. The training algorithm uses <b>MSE</b> as loss function. To evaluate
+        the reconstruction quality of the lego scene, PSNR is also calculated.</p>
+
+
+
+
+      <br><br>
+      <h3 align="middle">Lego Scene</h3>
+      In the Lego scene, the lego dataset with sampling rays and sampling points are:
+      <div align="middle">
+        <table style="width=100%">
+          <tr>
+            <td align="middle">
+              <img src="imagesb/render1.png" align="middle" width="500px" />
+              <figcaption align="middle">Sampling 100 rays from all cameras</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesb/render2.png" align="middle" width="500px" />
+              <figcaption align="middle">Samplng 100 rays from one camera</figcaption>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <br><br>
+      <h3 align="middle">Training</h3>
+      I contructed the MLP network with $L=10$ max frequency and 256 hidden layers. My training for the network is in
+      three steps.
+      <ol>
+        <li>Train with 3000 iterations with 500 sample rays and 64 sample points per ray. Reach validation $PSNR =
+          22.39$.</li>
+        <li>Train with 1000 iterations with 1000 sample rays and 64 sample points per ray. Reach validation $PSNR =
+          24.07$.</li>
+        <li>Train with 2000 iterations with 1500 sample rays and 64 sample points per ray. Reach validation $PSNR =
+          25.84$.</li>
+      </ol>
+
+      <div align="middle">
+        <table style="width=100%">
+          <tr>
+            <td align="middle">
+              <img src="imagesb/1-1.png" align="middle" width="500px" />
+              <figcaption align="middle">1st Validation MSE Loss</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesb/1-2.png" align="middle" width="500px" />
+              <figcaption align="middle">1st Validation Peak Signal-to-Noise Ration</figcaption>
+            </td>
+          </tr>
+          <tr>
+            <td align="middle">
+              <img src="imagesb/2-1.png" align="middle" width="500px" />
+              <figcaption align="middle">2nd Validation MSE Loss</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesb/2-2.png" align="middle" width="500px" />
+              <figcaption align="middle">2nd Validation Peak Signal-to-Noise Ration</figcaption>
+            </td>
+          </tr>
+          <tr>
+            <td align="middle">
+              <img src="imagesb/3-1.png" align="middle" width="500px" />
+              <figcaption align="middle">3rd Validation MSE Loss</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesb/3-2.png" align="middle" width="500px" />
+              <figcaption align="middle">3rd Validation Peak Signal-to-Noise Ration</figcaption>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <br><br>
+
+      Visualize the Training Process:
+      <div align="middle">
+        <table style="width=100%">
+          <tr>
+            <td align="middle">
+
+            </td>
+            <td align="middle">
+              <img src="imagesb/4-1.png" align="middle" width="300px" />
+              <figcaption align="middle">Iteration 1 of 1st training</figcaption>
+            </td>
+          <tr>
+
+          </tr>
+          <td align="middle">
+            <img src="imagesb/4-1-100.png" align="middle" width="300px" />
+            <figcaption align="middle">Iteration 100 of 1st training</figcaption>
+          </td>
+          <td align="middle">
+            <img src="imagesb/4-1-200.png" align="middle" width="300px" />
+            <figcaption align="middle">Iteration 200 of 1st training</figcaption>
+          </td>
+          <td align="middle">
+            <img src="imagesb/4-1-500.png" align="middle" width="300px" />
+            <figcaption align="middle">Iteration 500 of 1st training</figcaption>
+          </td>
+          </tr>
+          <tr>
+            <td align="middle">
+              <img src="imagesb/4-1-1000.png" align="middle" width="300px" />
+              <figcaption align="middle">Iteration 1000 of 1st training</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesb/4-1-2000.png" align="middle" width="300px" />
+              <figcaption align="middle">Iteration 2000 of 1st training</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesb/4-1-3000.png" align="middle" width="300px" />
+              <figcaption align="middle">Iteration 3000 of 1st training</figcaption>
+            </td>
+          </tr>
+          <tr>
+            <td align="middle">
+              <img src="imagesb/4-2-1000.png" align="middle" width="300px" />
+              <figcaption align="middle">Iteration 1000 of 2nd training</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesb/4-3-1000.png" align="middle" width="300px" />
+              <figcaption align="middle">Iteration 1000 of 3rd training</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesb/4-3-2000.png" align="middle" width="300px" />
+              <figcaption align="middle">Iteration 2000 of 3rd training</figcaption>
+            </td>
+          </tr>
+
+        </table>
+      </div>
+
+      <h4 align="middle">Spherical Rendering</h4>
+      <div align="middle">
+        <table style="width=100%">
+          <tr>
+            <td align="middle">
+              <img src="imagesb/sph_render_1_3000.gif" align="middle" width="400px" />
+              <figcaption align="middle">Spherical Rendering of 1st training</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesb/sph_render.gif" align="middle" width="400px" />
+              <figcaption align="middle">Spherical Rendering of 3rd training</figcaption>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+
+      <br><br>
+      <h3 align="middle">Bells & Whistles</h3>
+      <h4 align="middle">Background Color</h4>
+      To add background color to my rendering, I need to adjust volume rendering algorithm.
+      The new algorithm is:
+      $$
+      \mathbf{C}(\mathbf{r}) = \sum_{i=1}^N T_i \cdot \alpha_i \cdot \mathbf{c}_i + T_N\cdot \mathbf{C}_{\text{bg}}
+      $$
+      Where:</p>
+      <ul>
+        <li>$\mathbf{C}(\mathbf{r}) $: Final color for the ray.</li>
+        <li>$ T_i =\exp (-\sum_{j=1}^{i-1}\sigma_j\delta_j)= \prod_{j=1}^{i-1} \left( 1 - \alpha_j \right) $:
+          Transmittance, the probability of a ray not terminating before sample location $i$.</li>
+        <li>$\alpha_i = 1 - \exp(-\sigma_i \delta_i) $: The probability of terminating at sample location
+          $i$.
+        </li>
+        <li>$\mathbf{c}_i $: Color emitted at the $i$-th point.</li>
+        <li>$T_N$: Transmittance at the last sampled point.</li>
+        <li>$\mathbf{C}_{\text{bg}}$: Background color.</li>
+      </ul>
+
+      <div align="middle">
+        <table style="width=100%">
+          <tr>
+            <td align="middle">
+              <img src="imagesb/sph_render_bgc.gif" align="middle" width="400px" />
+              <figcaption align="middle">Spherical Rendering with Background Color Purple</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesb/sph_render_bgc_w.gif" align="middle" width="400px" />
+              <figcaption align="middle">Spherical Rendering with Background Color White</figcaption>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <br><br>
+      <h4 align="middle">Depth Rendering</h4>
+      To perform depth rendering, I adapt the volumn rendering algorithm:
+      $$
+      \mathbf{C}(\mathbf{r}) = \sum_{i=1}^N T_i \cdot \alpha_i \cdot D_i
+      $$
+      Where:</p>
+      <ul>
+        <li>$\mathbf{C}(\mathbf{r}) $: Depth for the ray.</li>
+        <li>$ T_i =\exp (-\sum_{j=1}^{i-1}\sigma_j\delta_j)= \prod_{j=1}^{i-1} \left( 1 - \alpha_j \right) $:
+          Transmittance, the probability of a ray not terminating before sample location $i$.</li>
+        <li>$\alpha_i = 1 - \exp(-\sigma_i \delta_i) $: The probability of terminating at sample location
+          $i$.
+        </li>
+        <li>$D_i$: Depth at sample location $i$.</li>
+      </ul>
+      To create a better visual effect, I also normalize the depth value according the near bound ($2$) and the bar bound ($6$).
+      $$D_{\text{normalized}} = \frac{D-t_{\text{near}}}{t_{\text{far}}-t_{\text{near}}}$$
+      <div align="middle">
+        <table style="width=100%">
+          <tr>
+            <td align="middle">
+              <img src="imagesb/sph_render_depth.gif" align="middle" width="400px" />
+              <figcaption align="middle">Spherical Depth Rendering with Color</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesb/sph_render_depth_g.gif" align="middle" width="400px" />
+              <figcaption align="middle">Spherical Depth Rendering</figcaption>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+</body>
+
+</html>
