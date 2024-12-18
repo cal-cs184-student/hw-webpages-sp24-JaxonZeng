@@ -77,7 +77,7 @@
         $$
         where:</p>
       <ul>
-        <li>$ \mathbf{p} $: Input 2D pixel position, normalized to $0, 1]\$or $-1, 1]$.</li>
+        <li>$ \mathbf{p} $: Input 2D pixel position.</li>
         <li>$ \mathbf{c} $: Output color at that position.</li>
         <li>$ f_\theta $: Neural network parameterized by weights $\theta $</li>
       </ul>
@@ -236,6 +236,73 @@
             </td>
             <td align="middle">
               <img src="imagesa/2-6.png" align="middle" width="300px" />
+              <figcaption align="middle">Predicted Image iteration 5000</figcaption>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <br><br>
+
+      <h3 align="middle">Cat</h3>
+      I also choose the image from the cute cat Hujiao as input for training the Mlp.
+      <div align="middle">
+        <table style="width=100%">
+          <tr>
+            <td align="middle">
+              <img src="imagesa/cat.jpg" align="middle" width="300px" />
+              <figcaption align="middle">Cat Original Image</figcaption>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <br><br>
+
+      I train my model with $L=10$ and hidden dimension of $512$ for $5000$ iterations and batch size of $5000$. My
+      learning rate is $1e-3$. The model reach a PSNR of $26.33$.
+
+
+      <div align="middle">
+        <table style="width=100%">
+          <tr>
+            <td align="middle">
+              <img src="imagesa/7-1.png" align="middle" width="500px" />
+              <figcaption align="middle">MSE Loss</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesa/7-2.png" align="middle" width="500px" />
+              <figcaption align="middle">PSNR</figcaption>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div align="middle">
+        <table style="width=100%">
+          <tr>
+            <td align="middle">
+              <img src="imagesa/8-1.png" align="middle" width="300px" />
+              <figcaption align="middle">Predicted Image iteration 1</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesa/8-2.png" align="middle" width="300px" />
+              <figcaption align="middle">Predicted Image iteration 1000</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesa/8-3.png" align="middle" width="300px" />
+              <figcaption align="middle">Predicted Image iteration 2000</figcaption>
+            </td>
+          </tr>
+
+          <tr>
+            <td align="middle">
+              <img src="imagesa/8-4.png" align="middle" width="300px" />
+              <figcaption align="middle">Predicted Image iteration 3000</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesa/8-5.png" align="middle" width="300px" />
+              <figcaption align="middle">Predicted Image iteration 4000</figcaption>
+            </td>
+            <td align="middle">
+              <img src="imagesa/8-6.png" align="middle" width="300px" />
               <figcaption align="middle">Predicted Image iteration 5000</figcaption>
             </td>
           </tr>
